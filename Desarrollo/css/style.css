@@ -299,6 +299,7 @@ body{
 .peliculas img{
 	width:100%;
 	cursor:pointer;
+	z-index:1;
 }
 .peliculas img:hover{
 	filter: opacity(30%);
@@ -313,6 +314,8 @@ body{
 	vertical-align:bottom;
 	font-weight:bold;
 	font-size:16px;
+    z-index: -1;
+    opacity: 100%;
 	}
 .horarios h2{
 	font-weight:bold;
