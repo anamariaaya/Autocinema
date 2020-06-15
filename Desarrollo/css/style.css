@@ -302,13 +302,13 @@ body{
 	z-index:1;
 }
 .peliculas img:hover{
-	filter: opacity(30%);
+	filter: opacity(13%);
 }
 .horarios{
 	position: relative;
     text-transform: uppercase;
-    bottom: 100px;
-    width: 80%;
+    bottom: 75px;
+    width: 88%;
     margin: auto;
     height: auto;
 	vertical-align:bottom;
@@ -319,12 +319,29 @@ body{
 	}
 .horarios h2{
 	font-weight:bold;
+	padding:0px 15px;
 }
 .horarios p{
 	font-weight:500;
+	padding:2px 15px;
 }
-
-
+.diapeli{
+	height:50px;
+	background-image:linear-gradient(#7e0e1c, #e81c25, #7e0e1c);
+	width:100%;
+	opacity:100%;
+}
+.diapeli p{
+	text-align:center;
+	color:#fff;
+	text-transform:uppercase;
+	padding:5% 0px;
+	font-weight:600;
+}
+.nombrepeli{
+	position:absolute;
+	top:-65px;
+}
 .prev2, .next2 {
   cursor: pointer;
   position: absolute;
