@@ -265,5 +265,54 @@ body{
 	letter-spacing:3px;
 	font-weight:600;
 }
+/*Slide Películas*/
+.slideshow-container2 {
+  max-width: 90%;
+  position: relative;
+  margin: auto;
+}
+.peliculassec{
+	width:90%;
+	display:flex;
+	margin:auto;
+}
+.peliculas{
+	width:25%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	border-radius:10px;
+}
+.peliculas img{
+	width:100%;
+	cursor:pointer;
+}
+.prev2, .next2 {
+  cursor: pointer;
+  position: absolute;
+  top: 44%;
+  width: auto;
+  padding: 25px;
+  color:#8210d2;
+  font-weight:bold;
+  font-size: 50px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "next button" to the right */
+.next2 {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev2:hover, .next2:hover {
+  background-color: #dad1e0;
+}
+.active2, .dot2:hover {
+  background-color: #8210d2;
+}
 
 
