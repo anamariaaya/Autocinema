@@ -51,11 +51,11 @@ body{
 
 .logomain{
 	width:200px;
-	margin:0% 2%;
+	margin:1% 0% 1% 5%;
 	float:left;
 }
 .logomain img{
-	width:17vw;
+	width:10vw;
 	display:block;
 	vertical-align:middle;
 }
@@ -384,6 +384,9 @@ footer{
 }
 .colfooter ul a li{
 	padding:10px 0px;
+}
+.botcentral{
+	margin-top:30% !important;
 }
 
 
