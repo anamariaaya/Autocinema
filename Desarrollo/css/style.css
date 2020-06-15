@@ -270,6 +270,7 @@ body{
   max-width: 90%;
   position: relative;
   margin: auto;
+  padding-bottom:100px;
 }
 .peliculassec{
 	width:90%;
@@ -285,12 +286,13 @@ body{
 	border-radius:10px;
 	background-image:url('../img/index/marco1.png');
 	background-size:contain;
-	background-repeat:no-repeat;
+	background-repeat:no-repeat;	
 }
 .peliculas:hover{
 	background-image:url('../img/index/marco2.png');
 	background-size:contain;
 	background-repeat:no-repeat;
+	transform:scale(1.2,1.2);
 }
 .peliculas img{
 	width:100%;
@@ -323,6 +325,8 @@ body{
     background-repeat: no-repeat;
 }
 
-/* On hover, add a black background color with a little bit see-through */
+.publicidad img{
+	width:100%;
+}
 
 
