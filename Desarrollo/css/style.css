@@ -283,6 +283,14 @@ body{
 	margin-right:auto;
 	margin-top:50px;
 	border-radius:10px;
+	background-image:url('../img/index/marco1.png');
+	background-size:contain;
+	background-repeat:no-repeat;
+}
+.peliculas:hover{
+	background-image:url('../img/index/marco2.png');
+	background-size:contain;
+	background-repeat:no-repeat;
 }
 .peliculas img{
 	width:100%;
