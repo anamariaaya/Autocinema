@@ -26,15 +26,28 @@ class PruebasController extends Controller
         // }
         // var_dump($sala);
          
+        // $restaurantes =  restaurante::all();
+        // foreach ($restaurantes as $restaurante) {
+        //     echo "<h1>".$restaurante->descripcion."</h1>";
+        //     foreach ($restaurante->productos as $producto) {
+        //         echo "<h2>".$producto->descripcion."</h2>";
+        //         echo "<h3>".$producto->costo."</h3>";
+        //     }
+        // }
+        // 
+        /*
         $restaurantes =  restaurante::all();
         foreach ($restaurantes as $restaurante) {
             echo "<h1>".$restaurante->descripcion."</h1>";
             foreach ($restaurante->productos as $producto) {
                 echo "<h2>".$producto->descripcion."</h2>";
                 echo "<h3>".$producto->costo."</h3>";
+                foreach ( $producto->combos as $combo ){
+                    echo "Este producto esta incluido en el combo # " . $combo->descripcion . " con le id: " . $combo->id . " - " ;
+                }
             }
         }
-        
+        */
         die();
     }
 
