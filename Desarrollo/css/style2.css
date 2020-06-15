@@ -72,6 +72,17 @@ a{	text-decoration:none;}
 	font-weight:600;
 }
 
+.combosprin h2{
+	text-transform:uppercase;
+	letter-spacing:3px;
+	font-size: 45px;
+    padding: 8px 12px;
+    font-weight: 600;
+	color:#a6242a;
+	margin-left:10%;
+}
+/*Combos*/
+
 .slideshow-container5 {
   max-width: 90%;
   position: relative;
@@ -105,7 +116,7 @@ a{	text-decoration:none;}
   background-size: contain;
   background-repeat: no-repeat;
 }
-
+/*Fin slideshow combos*/
 .combossec{
 	width:80%;
 	display:flex;
@@ -127,6 +138,7 @@ a{	text-decoration:none;}
 }
 .combos img{
 	width:90%;
+	height:350px;
 	cursor:pointer;
 	display:block;
 	margin-left:auto;
@@ -150,6 +162,7 @@ a{	text-decoration:none;}
 	font-weight:bold;
 	padding: 13px 7px 10px;
 	height:23px;
+	width:30px
 }
 
 .textcombos {
@@ -163,9 +176,229 @@ a{	text-decoration:none;}
 }
 .subtextcombos {
 	color: #a6242a;
-    font-size: 18px;
+    font-size: 12px;
     padding: 8px 12px;
     font-weight: 400;
-	padding-bottom:30px;
+	padding-bottom:15px;
 	margin-left:10%;
+	height:70px;
+	text-transform:uppercase;
+}
+
+/*Cantidad*/
+span {cursor:pointer; }
+
+.number{
+	margin-top:30px;
+	margin-left:29%;
+	margin-bottom:15px;
+}
+.minus, .plus{
+	width:25px;
+	height:20px;
+    display: inline-block;
+	vertical-align: middle;
+    text-align: center;
+	font-weight:bold;
+	color:grey;
+}
+.input2{
+	height:20px;
+    width: 80px;
+	color:grey;
+	font-weight:bold;
+    text-align: center;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle;
+	border-radius:15px;
+	border:none;
+	background-color:rgba(202,202,202,0.3);
+}
+
+.combos h3{
+	color:grey;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pedido{
+	cursor:pointer;
+	background-color:#ad1218;
+	color:white;
+	border-radius:20px;
+	border:none;
+	text-transform:uppercase;
+	font-size:10px;
+	padding:5px 7px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+}
+
+/*Slideshow Gaseosas*/
+
+.slideshow-container6 {
+  max-width: 90%;
+  position: relative;
+  margin: auto;
+  padding-bottom:100px;
+}
+
+.prev6, .next6 {
+  cursor: pointer;
+  position: absolute;
+  top: 38%;
+  width: auto;
+  padding: 25px;
+  font-weight:bold;
+  font-size: 50px;
+  color: transparent;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "next button" to the right */
+.prev6{
+    background-image: url(../img/index/prev.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.next6 {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  background-image: url(../img/index/next.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.bebidassec{
+	width:80%;
+	display:flex;
+	margin:auto;
+}
+.bebidas{
+	width:23%;
+	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	border-radius:10px;
+	background-size:contain;
+	background-repeat:no-repeat;
+	display:block;
+}
+.bebidas:hover{
+	border:4px solid red;
+}
+.bebidas img{
+	width:80%;
+	height:400px;
+	cursor:pointer;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.descripcionbebidas{
+	width:100%;
+	margin-top:-140px;
+	margin-bottom:30px;
+}
+
+.titulocombos{
+	display:inline-flex;
+	width:100%;
+}
+
+.preciogaseosa{
+	border-radius:50px;
+	background-color:#a6242a;
+	color:white;
+	font-weight:bold;
+	padding: 13px 2px 10px 12px;
+	height:23px;
+	width:30px
+}
+
+.textcombos {
+	color: #a6242a;
+    font-size: 25px;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+	margin-left:10%;
+}
+.subtextcombos {
+	color: #a6242a;
+    font-size: 12px;
+    padding: 8px 12px;
+    font-weight: 400;
+	padding-bottom:15px;
+	margin-left:10%;
+	height:70px;
+	text-transform:uppercase;
+}
+
+/*Cantidad*/
+
+span {cursor:pointer; }
+
+.formgaseosa{
+	margin-top:10px;
+	margin-left:10%;
+	height:90PX;
+
+}
+.minus2, .plus2{
+	width:10px;
+	height:15px;
+    display: inline-block;
+    text-align: center;
+	font-weight:bold;
+	color:grey;
+}
+.input3{
+	height:15px;
+    width: 20px;
+	color:grey;
+	font-weight:bold;
+    text-align: center;
+    font-size: 13px;
+    display: inline-block;
+    vertical-align: middle;
+	border-radius:15px;
+	border:none;
+	background-color:rgba(202,202,202,0.3);
+}
+
+.tamanosgaseosa{
+	color:#ad1218;
+	font-size:12px;
+}
+
+.bebidas h3{
+	color:grey;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pedidobebidas{
+	cursor:pointer;
+	background-color:#ad1218;
+	color:white;
+	border-radius:20px;
+	border:none;
+	text-transform:uppercase;
+	font-size:10px;
+	padding:5px 7px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:20px;
+
 }
