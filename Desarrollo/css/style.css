@@ -286,18 +286,42 @@ body{
 	border-radius:10px;
 	background-image:url('../img/index/marco1.png');
 	background-size:contain;
-	background-repeat:no-repeat;	
+	background-repeat:no-repeat;
+	color: transparent;	
 }
 .peliculas:hover{
 	background-image:url('../img/index/marco2.png');
 	background-size:contain;
 	background-repeat:no-repeat;
 	transform:scale(1.2,1.2);
+	color: black;	
 }
 .peliculas img{
 	width:100%;
 	cursor:pointer;
 }
+.peliculas img:hover{
+	filter: opacity(30%);
+}
+.horarios{
+	position: relative;
+    text-transform: uppercase;
+    bottom: 100px;
+    width: 80%;
+    margin: auto;
+    height: auto;
+	vertical-align:bottom;
+	font-weight:bold;
+	font-size:16px;
+	}
+.horarios h2{
+	font-weight:bold;
+}
+.horarios p{
+	font-weight:500;
+}
+
+
 .prev2, .next2 {
   cursor: pointer;
   position: absolute;
