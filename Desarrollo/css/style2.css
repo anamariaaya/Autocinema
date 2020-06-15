@@ -377,7 +377,7 @@ span {cursor:pointer; }
 
 .tamanosgaseosa{
 	color:#ad1218;
-	font-size:12px;
+	font-size:10px;
 }
 
 .bebidas h3{
@@ -406,15 +406,15 @@ span {cursor:pointer; }
 
 /*Prueba*/
 
-.prueba{
+.ajustebebidas{
 	display:inline-flex;
 	width:100%;
 }
 
-.prueba1{
+.ajustebebidas1{
 	width:60%;
 }
 
-.prueba2{
+.ajustebebidas2{
 	width:40%;
 }
