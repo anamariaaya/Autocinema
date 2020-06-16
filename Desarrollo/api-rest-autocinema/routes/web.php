@@ -11,4 +11,9 @@
 |
 */
 
-Route::get('/' , 'PruebasController@testOrm');
+Route::post('/proyecciones' , 'ProyeccionController@getProyecciones');
+Route::post('/proyeccion' , 'ProyeccionController@getProyeccion');
+Route::post('/productos' , 'ProductosController@getProductos');
+Route::post('/asientos' , 'AsientosController@getAsientos');
+Route::post('/resumen' , 'TransaccionController@setResumen');
+

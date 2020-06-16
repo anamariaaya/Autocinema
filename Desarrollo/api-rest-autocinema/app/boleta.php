@@ -14,11 +14,11 @@ class boleta extends Model
     ];
 
     public function tipo_boleta(){
-        return $this->belongsTo('App\tipo_boleta' , 'tipo_id');
+        return $this->belongsTo('App\tipo_boleta' , "tipo_id");
     }
 
     public function proyeccion() {
-        return $this->belongsTo("App\proyeccoion", "proyeccion_id");
+        return $this->belongsTo("App\proyeccion", "proyeccion_id");
     }
 
     public function cliente() {
