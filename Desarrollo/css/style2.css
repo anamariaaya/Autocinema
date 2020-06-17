@@ -509,7 +509,6 @@ label{
 	font-size: 20px;
 	color: #fff;
 	line-height:2;
-	margin-left:25px;
 	color:#666666;
 	font-weight:bold;
 }
@@ -519,14 +518,13 @@ label{
 	background-color:#ffffff;
 	color: #000;
 	height:30px;
-	width:290px;
-	margin-left:25px;
+	width:65%;;
+
 }
 
 .mensaje{
 	height:250px;
-	width:610px;
-	margin-left:25px;
+	width:82.5%;;
 	font-size: 15px;
 	border: 1px solid #a6242a;
 }
@@ -534,10 +532,10 @@ label{
 .submit2{
 	background-color:#ba1c24;
 	border: 1px solid transparent;
-	padding:3px 25px;
+	padding:3px 30px;
 	color:#fff;
 	font-size:24px;
-	margin-left:60%;
+	margin-left:65%;
 	cursor:pointer;
 	margin-top:50px;
 	border-radius:15px;
@@ -546,10 +544,24 @@ label{
 
 .left{
   float:left;
+  width:50%;
 }
 
-.clear{
-  clear:both;
+.left2{
+  float:left;
+  width:100%;
+}
+
+.left:after{
+	clear:both;
+	content:"";
+	display:table;
+}
+
+.left2:after{
+	clear:both;
+	content:"";
+	display:table;
 }
 
 /*Preguntas Frecuentes*/
