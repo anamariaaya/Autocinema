@@ -546,3 +546,54 @@ label{
 .clear{
   clear:both;
 }
+
+/*Preguntas Frecuentes*/
+
+.cintatitulopreguntas{
+	background-image: url('../img/index/cinta-titulo.png');
+    background-size: contain;
+    height: 210px;
+    width: 750px;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.cintatitulopreguntas h1{
+	color: white;
+	font-size:32px;
+	text-align:center;
+	padding:57px 0;
+	text-transform:uppercase;
+	letter-spacing:4px;
+	font-weight:600;
+}
+
+.pregtxt{
+	margin-bottom:60px;
+}
+
+.pregtxt h2{
+	text-transform:uppercase;
+	letter-spacing:3px;
+	font-size: 40px;
+    font-weight: 600;
+	color:#a6242a;
+	padding-top:60px;
+	padding-bottom:15px;
+	margin-left:5%;
+}
+
+.pregtxt p{
+	margin-left:5%;
+	margin-right:5%;
+	font-size:22px;
+	padding-top:30px;
+	color:#666666;
+}
+
+.lineaterm{
+	background-color:#a6242a;
+	height:5px;
+	width:22%;
+	margin-left:4%;
+}
