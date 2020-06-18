@@ -13,7 +13,8 @@
 
 <link rel="icon" type="image/png" href="img/favicon.png" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -72,9 +73,39 @@
     <div class="boletassec setup-content" id="step-1">
         <div class="col-xs-12">
             <div class="col-md-12 well text-center">
-            <div class="pasos"></div>
-            <div class="comprapeli"></div>
-                <button id="activate-step-2" class="btn btn-primary btn-lg">Activate Step 2</button>
+            <div class="pasosprin">
+            	<div class="pasos">
+                	<h3>Paso 1</h3>
+                	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                </div>
+            	<div class="comprapeli">
+                	<div id="tabui">
+                  <div class="foo">  
+                  <ul id="tabs" class="tabs">
+                    <li>01 Jun</li>
+                    <li>02 Jun</li>
+                    <li>03 Jun</li>
+                    <li>04 Jun</li>
+                    <li>05 Jun</li>
+                    <li>06 Jun</li>
+                    <li>07 Jun</li>
+                    <li>08 Jun</li>
+                  </ul>
+                  </div>
+                  <div id="tabcontent">
+                    <div>Aquaman </div>
+                    <div>Ares</div>
+                    <div>Bane</div>
+                    <div>Fighting</div>
+                    <div>Black</div>
+                    <div>Catwoman</div>
+                    <div>Prueba</div>
+                    <div>Prueba2</div>
+                  </div>
+                </div>
+                </div>
+            </div>
+                <button id="activate-step-2" class="btn btn-primary btn-lg">Siguiente</button>
             </div>
         </div>
     </div>
@@ -82,7 +113,7 @@
         <div class="col-xs-12">
             <div class="col-md-12 well text-center">
                 <h2> STEP 2</h2>
-                <button id="activate-step-3" class="btn btn-primary btn-lg">Activate Step 3</button>
+                <button id="activate-step-3" class="btn btn-primary btn-lg">Siguiente</button>
             </div>
         </div>
     </div>
@@ -90,7 +121,7 @@
         <div class="col-xs-12">
             <div class="col-md-12 well text-center">
                 <h2> STEP 3</h2>
-                <button id="activate-step-4" class="btn btn-primary btn-lg">Activate Step 4</button>
+                <button id="activate-step-4" class="btn btn-primary btn-lg">Siguiente</button>
             </div>
         </div>
     </div>
@@ -147,6 +178,40 @@ jQuery(document).ready(function() {
         $(this).remove();
     })     
 });</script>
+
+<script>$("#tabcontent div").hide();
+ $("#tabcontent div:eq('0')").show();
+ $("ul#tabs li:eq('0')").addClass("active3");
+
+ $("li").click(function() {
+   var i = $(this).index();
+   $("#tabcontent div:not(:eq(" + i + "))").hide();
+   $("#tabcontent div:eq(" + i + ")").fadeIn("slow", "linear");
+   centerLI(this, 'ul#tabs');
+   $("li").each(function() {
+     $(this).removeClass('active3');
+   });
+   $(this).addClass("active3");
+
+ });
+
+ function centerLI(target, outer) {
+   var out = $(outer);
+   var tar = $(target);
+   var x = out.width() - 50;
+   var y = tar.outerWidth(true);
+   var z = tar.index();
+   var q = 0;
+   var m = out.find('li');
+   for (var i = 0; i < z; i++) {
+     q += $(m[i]).outerWidth(true);
+   }
+   //out.scrollLeft(Math.max(0, q - (x - y)/2));
+   out.animate({
+     scrollLeft: Math.max(0, q - (x - y) / 2)
+   }, 500);
+
+ }</script>
 
 </body>
 </html>
