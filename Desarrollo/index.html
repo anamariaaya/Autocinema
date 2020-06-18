@@ -30,7 +30,7 @@
           <a href="#">Contactos</a>
           <a href="#">Eventos</a>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars fa-2x"></i>
           </a>
     </div>
     <div class="toplinks">
@@ -385,11 +385,19 @@
    </div>
 </footer>  
        
-
-
+<script>
+//menú
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 
 <script>
-
 //Slide principal
 var slideIndex = 1;
 showSlides(slideIndex);
