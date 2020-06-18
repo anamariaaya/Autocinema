@@ -622,7 +622,7 @@ label{
     margin-right: auto;
     margin-left: auto;
 	box-sizing: border-box;
-	width:80%;
+	width:90%;
 }
 
 .boletassec{
@@ -724,21 +724,23 @@ btn-lg{
 .pasosprin{
 	width:100%;
 	display:inline-flex;
+	margin-top:50px;
 }
 
 .pasos{
-	width:30%;
+	width:40%;
+	background-color:#f0f0f0;
 }
 
 .comprapeli{
-	width:70%;
+	width:60%;
 }
 
 /*Prueba*/
 
 #tabui {
   padding: 0px;
-  width:50%;
+  width:60%;
   margin-left:25%;
 }
 
@@ -793,9 +795,18 @@ ul#tabs li.active3 {
 }
 
 .pasos h3{
-	color:#666666;
+	color:#777777;
 	text-align:center;
-	padding-top:60px;
+	padding-top:20px;
 	font-size:40px;
-	font-weight:bold;
+}
+
+.pasos p{
+	color:#777777;
+	text-align:left;
+	padding-top:30px;
+	font-size:18px;
+	margin-left:7%;
+	margin-right:5%;
+	padding-bottom:50px;
 }
