@@ -637,6 +637,7 @@ label{
 
 .active2:hover{
 	background-color: #717171;
+	border-radius: 0px!important;
 }
 
 .active2{
@@ -661,10 +662,10 @@ label{
 	min-height: 20px;
     padding: 19px;
     margin-bottom: 20px;
-    background-color: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+   background-color:#ffffff!important;
+    border:none!important;
+    border-radius: 0px!important;
+    box-shadow:none!important;
 }
 
 .text-center{
@@ -712,8 +713,17 @@ btn-lg{
 	color:#787878;
 }
 
+.nav-pills li a {
+    border-radius: 0px!important;
+}
+
 .active2 a{
 	color:#ffffff!important;
+}
+
+.pasosprin{
+	width:100%;
+	display:inline-flex;
 }
 
 .pasos{
@@ -722,4 +732,70 @@ btn-lg{
 
 .comprapeli{
 	width:70%;
+}
+
+/*Prueba*/
+
+#tabui {
+  padding: 0px;
+  width:50%;
+  margin-left:25%;
+}
+
+ul#tabs {
+  margin: 0 auto;
+  padding: 0;
+  white-space: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  font-size:20px;
+  background-color:#f0f0f0;
+  border-bottom:3px solid #a6242a;
+}
+
+ul#tabs::-webkit-scrollbar {
+  width: 0 !important;
+  background-color:#ffffff;
+}
+
+ul#tabs li {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  margin-right: 0px!important;
+  cursor: pointer;
+  color:#777777;
+  border-right:2px solid #b8b8b8;
+  border-left:2px solid #b8b8b8;
+
+}
+ul#tabs li:hover{
+  color:#333333;
+}
+
+ul#tabs li.active3 {
+  color:#a6242a;
+  background-color:#cacaca;
+}
+
+#tabcontent {
+  font-size: 18px;
+  height: auto;
+  overflow: auto;
+}
+
+.foo {
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+}
+
+.pasos h3{
+	color:#666666;
+	text-align:center;
+	padding-top:60px;
+	font-size:40px;
+	font-weight:bold;
 }
