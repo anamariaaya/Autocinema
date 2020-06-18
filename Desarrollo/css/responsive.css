@@ -134,6 +134,12 @@
 	  height: 14px;
 	  width: 14px;
 	}
+	.slideshow-container2 {
+		padding-bottom:65px;
+	}
+	.prev2, .next2 {
+		padding:18px;
+	}
 			
 }
 @media screen and (max-width: 835px){
@@ -159,6 +165,25 @@
 	.dots {
 		bottom: 15%;
 	}
+	.cintatitulo{
+		height:145px;
+		width:650px;
+	}
+	.cintatitulo h1{
+		font-size:28px;
+		padding:50px 0px;
+	}
+	.slideshow-container2 {
+	    max-width: 95%;
+		padding-bottom:40px;
+	}
+	.peliculas{
+		width:27%;
+	}
+	.prev2, .next2 {
+		font-size:24px;
+		padding:16px;
+	}
 }
 @media screen and (max-width: 750px){
 	.topnav{
@@ -167,6 +192,14 @@
 	.toplinks{
 		width:200px;
 		top:4.5%;
+	}
+	.cintatitulo{
+		height: 110px;
+	    width: 500px;
+	}
+	.cintatitulo h1{
+		font-size:24px;
+		padding: 38px 0px;
 	}
 }
 @media screen and (max-width: 630px){
@@ -191,6 +224,17 @@
 	.active, .dot:hover {
 		height: 12px;
 		width: 12px;
+	}
+	.prev2, .next2 {
+		font-size: 10px;
+		padding: 14px;
+		top:40%;
+	}
+	.slideshow-container2 {
+		padding-bottom: 20px;
+	}
+	.peliculas{
+		width:28%;
 	}
 }
 @media screen and (max-width: 535px){
@@ -254,6 +298,19 @@
 		height: 10px;
 		width: 10px;
 	}
+	.cintatitulo {
+		height: 82px;
+		width: 370px;
+	}
+	.cintatitulo h1{
+		font-size:18px;
+		letter-spacing:2px;
+		padding:28px 0px;
+	}
+	.prev2, .next2 {
+    	font-size: 8px;
+	    padding: 12px;
+	}
 }
 @media screen and (max-width: 430px){
 	.logomain {
@@ -300,6 +357,35 @@
 		width:6px;
 		margin: 0px 1px 0px 0px;
 	}	
+	.cintatitulo {
+		height: 66px;
+		width: 300px;
+	}
+	.cintatitulo h1 {
+		font-size: 14px;
+		letter-spacing: 1px;
+		padding: 22px 0px;
+	}
+	.slideshow-container2 {
+		padding-bottom: 0px;
+	}
+	.peliculassec {
+		width: 80%;
+		display: block;
+		margin: auto;
+	}
+	.peliculas {
+		width: 135px;
+		height: 200px;
+		margin-top: 5px;
+	}
+	.peliculas:hover {
+		transform: scale(1.1,1.1);
+	}
+	.prev2, .next2 {
+		font-size: 15px;
+		padding: 20px;
+	}
 }
 @media screen and (max-width: 350px){
 	.banner-ini {
