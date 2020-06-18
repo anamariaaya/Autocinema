@@ -335,11 +335,14 @@ body{
 	font-weight:500;
 	padding:2px 15px;
 }
-.diapeli{
-	height:50px;
-	background-image:linear-gradient(#7e0e1c, #e81c25, #7e0e1c);
-	width:100%;
-	opacity:100%;
+.diapeli {
+    height: 50px;
+    background-image: linear-gradient(#7e0e1c, #e81c25, #7e0e1c);
+    width: 88%;
+    opacity: 100%;
+    position: relative;
+    top: -16%;
+    margin: auto;
 }
 .diapeli p{
 	text-align:center;
@@ -355,7 +358,7 @@ body{
 .prev2, .next2 {
   cursor: pointer;
   position: absolute;
-  top: 44%;
+  top: 35%;
   width: auto;
   padding: 25px;
   font-weight:bold;
