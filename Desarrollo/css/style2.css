@@ -682,14 +682,14 @@ label{
     touch-action: manipulation;
     cursor: pointer;
     user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-}
-
-.btn-primary {
-	color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
+    border: none!important;
+	background-image: linear-gradient(to left, #150819, #e91b25, #150819)!important;
+	padding:10px 35px!important;
+	text-transform:uppercase;
+	margin-top:50px;
+	margin-left:70%;
+	font-size:22px!important;
+	border-radius:25px!important;
 }
 
 btn-lg{
@@ -846,4 +846,13 @@ ul#tabs li.active3 {
 .disponibilidad{
 	font-size:18px;
 	color:#a6242a;
+}
+
+.puestos{
+	width:50%;
+	height:500px;
+	background-image:url('../img/boletas/puestos.png');
+	background-repeat:no-repeat;
+	background-size:contain;
+	margin-left:7%;
 }
