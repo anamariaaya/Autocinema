@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+<title>Compra de Boletas</title>
+
+<link rel = "stylesheet" type = "text/css" href = "css/style.css" />
+<link rel = "stylesheet" type = "text/css" href = "css/style2.css" />
+<link rel = "stylesheet" type = "text/css" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel = "stylesheet" type = "text/css" href = "css/responsive.css" />
+
+<link rel="icon" type="image/png" href="img/favicon.png" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script></script>
+</head>
+
+<body>
+<div class="banner-ini">
+	<div class="logomain">
+    	<img src="img/logo.png"/>
+    </div>
+	
+    <div class="topnav" id="myTopnav">
+          <a href="index.html">Inicio</a>
+          <a href="confiteria.html">Confitería</a>
+          <a href="#">Contactos</a>
+          <a href="#">Eventos</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+    </div>
+    <div class="toplinks">
+    	<div class="comprar-blt">
+        	<p>Comprar Boletas</p>
+        </div>
+        <div class="redesind">
+            <img src="img/ig.png"/>
+            <img src="img/fb.png"/>
+            <img src="img/wa.png"/>
+        </div>
+    </div>
+    
+</div>
+
+<div style="width:100%">
+        <div class="cintatitulocontacto">
+        	<h1>Compra de Boletas</h1>
+        </div>
+</div>
+
+<div class="boletasprin">
+    <div class="boletassec form-group">
+        <div class="col-xs-12">
+            <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                <li class="active2"><a href="#step-1">
+                    <h4 class="list-group-item-heading">Paso 1</h4>
+                </a></li>
+                <li class="disabled"><a href="#step-2">
+                    <h4 class="list-group-item-heading">Paso 2</h4>
+                </a></li>
+                <li class="disabled"><a href="#step-3">
+                    <h4 class="list-group-item-heading">Paso 3</h4>
+                </a></li>
+                <li class="disabled"><a href="#step-4">
+                    <h4 class="list-group-item-heading">Paso 4</h4>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="boletassec setup-content" id="step-1">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+            <div class="pasos"></div>
+            <div class="comprapeli"></div>
+                <button id="activate-step-2" class="btn btn-primary btn-lg">Activate Step 2</button>
+            </div>
+        </div>
+    </div>
+    <div class="boletassec setup-content" id="step-2">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h2> STEP 2</h2>
+                <button id="activate-step-3" class="btn btn-primary btn-lg">Activate Step 3</button>
+            </div>
+        </div>
+    </div>
+    <div class="boletassec setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h2> STEP 3</h2>
+                <button id="activate-step-4" class="btn btn-primary btn-lg">Activate Step 4</button>
+            </div>
+        </div>
+    </div>
+    <div class="boletassec setup-content" id="step-4">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h2> STEP 4</h2>
+                <button>Pagar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>"use strict"
+jQuery(document).ready(function() {
+    
+    var navListItems = $('ul.setup-panel li a'),
+        allWells = $('.setup-content');
+
+    allWells.hide();
+
+    navListItems.click(function(e)
+    {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+        
+        if (!$item.hasClass('disabled')) {
+            navListItems.closest('li').removeClass('active2');
+            $item.addClass('active2');
+            allWells.hide();
+            $target.show();
+        }
+    });
+    
+    $('ul.setup-panel li.active2 a').trigger('click');
+    
+    // DEMO ONLY //
+    $('#activate-step-2').on('click', function(e) {
+        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+        $(this).remove();
+    })   
+    
+    $('#activate-step-3').on('click', function(e) {
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })
+	
+	$('#activate-step-4').on('click', function(e) {
+        $('ul.setup-panel li:eq(3)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-4"]').trigger('click');
+        $(this).remove();
+    })     
+});</script>
+
+</body>
+</html>
