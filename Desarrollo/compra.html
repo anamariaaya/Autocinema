@@ -427,8 +427,88 @@
                                     <a href="#accordion1" aria-expanded="false" aria-controls="accordion1" class="accordion-title accordionTitle js-accordionTrigger">Combos</a>
                                   </dt>
                                   <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
-                                    <p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.google.com">Test</a>adipiscing elit. Morbi eu interdum diam. Donec interdum porttitor risus non bibendum. Maecenas sollicitudin eros in quam imperdiet placerat. Cras justo purus, rhoncus nec lobortis ut, iaculis vel ipsum. Donec dignissim arcu nec elit faucibus condimentum. Donec facilisis consectetur enim sit amet varius. Pellentesque justo dui, sodales quis luctus a, iaculis eget mauris. </p>
-                                    <p>Aliquam dapibus, ante quis fringilla feugiat, mauris risus condimentum massa, at elementum libero quam ac ligula. Pellentesque at rhoncus dolor. Duis porttitor nibh ut lobortis aliquam. Nullam eu dolor venenatis mauris placerat tristique eget id dolor. Quisque blandit adipiscing erat vitae dapibus. Nulla aliquam magna nec elementum tincidunt.</p>
+                                   <div id="container2">
+                                    <ul>
+                                    <li>
+                                    <div class="combossec">
+                                        <div class="combos2">
+                                           <img src="img/confiteria/combo.png"/>
+                                           <div class="descripcioncombos2">
+                                            <div class="titulocombos2">
+                                                <div class="textcombos2">Combo Pop</div>
+                                                <div class="preciocombo2">20K</div>
+                                            </div>
+                                            <div class="subtextcombos2">Gaseosa y crispetas<br>medianas y una crispeta<br>pequeña extra.</div>
+                                            <h3>Cantidad</h3>
+                                                    <div class="number2">
+                                                        <span class="minus">-</span>
+                                                        <input class="input3" type="text" value="1"/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                            </div>
+                                            <button class="pedido">Añadir al pedido</button>
+                                        </div>
+                                        <div class="combos2">
+                                             <img src="img/confiteria/combo-duo.png"/>
+                                             <div class="descripcioncombos2">
+                                            <div class="titulocombos2">
+                                                <div class="textcombos2">Combo Duo</div>
+                                                <div class="preciocombo2">18K</div>
+                                            </div>
+                                            <div class="subtextcombos2">Gaseosa y crispetas medianas</div>
+                                            <h3>Cantidad</h2>
+                                                    <div class="number2">
+                                                        <span class="minus">-</span>
+                                                        <input class="input3" type="text" value="1"/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                            </div>
+                                            <button class="pedido">Añadir al pedido</button>
+                                   </div>
+           							</li>
+                                    <li>
+                                    <div class="combossec">
+                                        <div class="combos2">
+                                             <img src="img/confiteria/combo-duo.png"/>
+                                             <div class="descripcioncombos2">
+                                            <div class="titulocombos2">
+                                                <div class="textcombos2">Combo Duo</div>
+                                                <div class="preciocombo2">18K</div>
+                                            </div>
+                                            <div class="subtextcombos2">Gaseosa y crispetas medianas</div>
+                                            <h3>Cantidad</h2>
+                                                    <div class="number2">
+                                                        <span class="minus">-</span>
+                                                        <input class="input3" type="text" value="1"/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                            </div>
+                                            <button class="pedido">Añadir al pedido</button>
+                                        </div>
+                                           
+                                           <div class="combos2">
+                                         <img src="img/confiteria/combo-trio.png"/>
+                                         <div class="descripcioncombos2">
+                                            <div class="titulocombos2">
+                                                <div class="textcombos2">Combo 3 en 1</div>
+                                                <div class="preciocombo2">25K</div>
+                                            </div>
+                                            <div class="subtextcombos2">Gaseosa y crispetas Grandes<br>Gaseosa y crispetas Medianas<br>Gaseosa y crispetas Pequeñas<br></div>
+                                            <h3>Cantidad</h2>
+                                                    <div class="number2">
+                                                        <span class="minus">-</span>
+                                                        <input class="input3" type="text" value="1"/>
+                                                        <span class="plus">+</span>
+                                                    </div>
+                                            </div>
+                                            <button class="pedido">Añadir al pedido</button>
+                                         </div>
+                                   </div>
+                                    </li>
+                                    </ul>
+                                    <span class="button prevButton"></span>
+                                    <span class="button nextButton"></span>
+                                    </div>	
                                   </dd>
                                   <dt>
                                     <a href="#accordion2" aria-expanded="false" aria-controls="accordion2" class="accordion-title accordionTitle js-accordionTrigger">
@@ -755,6 +835,68 @@ switchAccordion = function(e) {
     accordionToggles[i].addEventListener('click', switchAccordion, false);
   }
 })();</script>
+
+<script>
+$(window).load(function(){
+		var pages = $('#container2 li'), current=0;
+		var currentPage,nextPage;
+
+		$('#container2 .button').click(function(){
+			currentPage= pages.eq(current);
+			if($(this).hasClass('prevButton'))
+			{
+
+				if (current <= 0)
+					current=pages.length-1;
+				else
+					current=current-1;
+			}
+			else
+			{
+				if (current >= pages.length-1)
+					current=0;
+				else
+					current=current+1;
+			}
+			nextPage = pages.eq(current);	
+			currentPage.hide();	
+			nextPage.show();		
+		});
+});
+</script>
+
+<script>$(document).ready(function() {
+			$('.minus').click(function () {
+				var $input = $(this).parent().find('input');
+				var count = parseInt($input.val()) - 1;
+				count = count < 1 ? 1 : count;
+				$input.val(count);
+				$input.change();
+				return false;
+			});
+			$('.plus').click(function () {
+				var $input = $(this).parent().find('input');
+				$input.val(parseInt($input.val()) + 1);
+				$input.change();
+				return false;
+			});
+		});</script>
+        <script>$(document).ready(function() {
+			$('.minus2').click(function () {
+				var $input = $(this).parent().find('input');
+				var count = parseInt($input.val()) - 1;
+				count = count < 1 ? 1 : count;
+				$input.val(count);
+				$input.change();
+				return false;
+			});
+			$('.plus2').click(function () {
+				var $input = $(this).parent().find('input');
+				$input.val(parseInt($input.val()) + 1);
+				$input.change();
+				return false;
+			});
+		});</script>
 
 </body>
 </html>
