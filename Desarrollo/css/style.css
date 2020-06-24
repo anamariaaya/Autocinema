@@ -284,6 +284,7 @@ body{
 }
 .peliculassec{
 	width:90%;
+	height:550px;
 	display:flex;
 	margin:auto;
 }
@@ -306,10 +307,22 @@ body{
 	transform:scale(1.2,1.2);
 	color: black;	
 }
+.peliculas:hover>img ~.horarios{
+	visibility:visible;
+}
+.peliculas:hover>img ~.diapeli2{
+	display:none;
+}
 .peliculas img{
 	width:100%;
 	cursor:pointer;
 	z-index:1;
+}
+.peliculas img:hover ~.horarios{
+	visibility:visible;
+}
+.peliculas img:hover ~.diapeli2{
+	display:none;
 }
 .peliculas img:hover{
 	filter: opacity(13%);
@@ -326,6 +339,7 @@ body{
 	font-size:16px;
     z-index: -1;
     opacity: 100%;
+	visibility:hidden;
 	}
 .horarios h2{
 	font-weight:bold;
@@ -336,15 +350,34 @@ body{
 	padding:2px 15px;
 }
 .diapeli {
-    height: 50px;
+    height: 45px;
     background-image: linear-gradient(#7e0e1c, #e81c25, #7e0e1c);
-    width: 88%;
+    width: 100%;
     opacity: 100%;
     position: relative;
-    top: -16%;
+    top: 10px;
     margin: auto;
 }
 .diapeli p{
+	text-align:center;
+	color:#fff;
+	text-transform:uppercase;
+	padding:5% 0px;
+	font-weight:600;
+}
+.diapeli2 {
+    height: 45px;
+    background-color:black;
+    width: 88%;
+    opacity: 100%;
+    position: relative;
+    top: -13%;
+    margin: auto;
+	margin-left:21px;
+	z-index:1;
+}
+
+.diapeli2 p{
 	text-align:center;
 	color:#fff;
 	text-transform:uppercase;
