@@ -93,8 +93,9 @@
     <div class="slideshow-container2">
     	<div class="mySlides2 fade">
     		<div class="peliculassec">
+            
                 <div class="peliculas">
-                   <img src="img/index/poster-1.png"/>
+                   <img src="img/index/poster-1.png" id="myImg1"/>
                        <div class="diapeli2" id="fechahoy">
                        		<p>03 jul 2020</p>
                        </div>
@@ -107,10 +108,38 @@
                    <p>03 jul 2020</p>
                    </div>
                    </div>
-                   
                 </div>
+                 <!--Modal película hoy-->
+                  <div id="myModal1" class="modal">
+	          		<span class="closemodal">&times;</span>
+					<div class="modal-content" id="img01">
+                    	<div class="sinopsis">
+                        	<div class="sinopsis1">
+                            	<div class="marcorojo">
+	                            	<img src="img/index/poster-2.png">
+                                </div>
+                            </div>
+                            <div class="sinopsis2">
+                            	<img src="img/logo.png" width="15%" style="float:right; margin-right:10%; margin-top:3%;"/>
+                                <div class="titulosin">
+                                	<h2>El joker</h2>
+                                    <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                                    <p><b>Duración: </b>121 min</p><br>
+                                     <p><b>País: </b>121 min</p><br>
+                                      <p><b>Fecha de estreno: 01 de agosto 2020</b></p><br>
+                                      <p><b>Reparto: </b>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p><br>
+                                </div>
+                                <div class="trailer">
+	                                <div class="trailerbutton"></div><p>ver trailer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  
+                
                 <div class="peliculas">
-                     <img src="img/index/poster-2.png"/>
+                     <img src="img/index/poster-2.png" id="myImg2"/>
                        <div class="diapeli2" id="fechamanana">
                        		<p>03 jul 2020</p>
                        </div>
@@ -124,9 +153,16 @@
                    </div>
                    </div>
                 </div>
+                <!--Modal película mañana-->
+                  <div id="myModal2" class="modal">
+	          		<span class="closemodal">&times;</span>
+					<div class="modal-content" id="img02">
+                    	<img src="img/index/poster-3.png"/>
+                    </div>
+                  </div>
                    
                    <div class="peliculas" idpelicula="hola" id="cualquiera" onClick="setMovie(this.id)">
-            	 <img src="img/index/poster-3.png"/>
+            	 <img src="img/index/poster-3.png" id="myImg3"/>
                    <div class="diapeli2" id="fechapasm">
                    		<p>03 jul 2020</p>
                   	</div>
@@ -140,6 +176,13 @@
                   	</div>
                    </div>
            		 </div>
+                 <!--Modal película pasado mañana-->
+                  <div id="myModal3" class="modal">
+	          		<span class="closemodal">&times;</span>
+					<div class="modal-content" id="img03">
+                    	<img src="img/index/poster-3.png"/>
+                    </div>
+                  </div>
            </div>
        </div>
        
@@ -505,6 +548,27 @@ function showSlides5(n) {
   document.getElementById('myvideotag2').pause();
 }
 
+</script>
+
+<script>
+
+//Modales
+for (var i =1; i <=20 ; i++) {
+
+
+    eval("modal"+i+"=document.getElementById('myModal"+i+"')");
+
+    eval("img"+i+"=document.getElementById('myImg"+i+"')");
+
+    eval("modalImg"+i+"=document.getElementById('img0"+i+"')");
+
+    eval("img"+i+".onclick = function(){modal"+i+".style.display = 'block';modalImg"+i+".innerHTML}");
+
+    span = document.getElementsByClassName("closemodal")[i-1];
+
+    eval("span.onclick = function(){ modal"+i+".style.display = 'none';}");
+
+}
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
