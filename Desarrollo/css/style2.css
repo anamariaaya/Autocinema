@@ -686,8 +686,8 @@ label{
 	background-image: linear-gradient(to left, #150819, #e91b25, #150819)!important;
 	padding:10px 35px!important;
 	text-transform:uppercase;
-	margin-top:50px;
-	margin-left:70%;
+	margin-top:10px;
+	margin-left:80%;
 	font-size:22px!important;
 	border-radius:25px!important;
 }
@@ -1590,3 +1590,223 @@ width:100%;}
 	.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
 		   outline: none !important;
 	}
+	
+.resumen{
+	width:60%;
+	display:block;
+}
+
+.resumen1{
+	width:90%;
+	border:3px solid #a6242a;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.resumen1 h2{
+	color:#1a1a1a;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-align:center;
+	font-size:35px;
+}
+
+.resumenpeli{
+	width:100%;
+	margin-top:30px;
+	display:inline-flex;
+}
+
+.resumenpeliimg{
+	width:20%;
+}
+
+.resumenpeliimg img{
+	width:85%;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.resumenpeliinfo{
+	width:50%;
+}
+
+.resumenpeliinfo h3{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:30px;
+	padding-left:10px;
+	text-align:left;
+}
+
+.resumenpeliinfo h4{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:25px;
+	padding-left:10px;
+	text-align:left;
+}
+
+.resumenpeliinfo p{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:20px;
+	padding-left:10px;
+	text-align:left;
+}
+
+.resumenpeliprecio{
+	width:30%;
+	padding-top:20px;
+}
+
+.resumenpeliprecio p{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:25px;
+	text-align:right;
+	padding-right:30px;
+}
+
+.resumenconfiteria{
+	width:100%;
+	display:inline-flex;
+}
+
+.confiteriainfo{
+	width:50%;
+}
+
+.confiteriainfo h4{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:25px;
+	padding-left:25px;
+	text-align:left;
+}
+
+.confiteriaprecios{
+	width:50%;
+}
+
+.confiteriaprecios h4{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:25px;
+	text-align:right;
+	padding-right:30px;
+}
+
+.resumentitconfi{
+	text-transform:uppercase;
+	color:#777777;
+	font-size:30px;
+	padding-left:25px;
+	text-align:left;
+}
+
+.totalpagar{
+	width:100%;
+	margin-top:50px;
+}
+
+.totalpagar2{
+	float:right;
+	display:block;
+	width:30%;
+	margin-right:50px;
+	padding-bottom:30px;
+}
+
+.totalpagar2 h4{
+	text-transform:uppercase;
+	color:#1a1a1a;
+	font-size:25px;
+	text-align:center;
+}
+
+.totalpagar2 p{
+	text-transform:uppercase;
+	color:#a6242a;
+	font-size:25px;
+	text-align:center;
+	background-color:#f0f0f0;
+	font-weight:bold;
+}
+
+.resumen1:after{
+	clear:both;
+	content:"";
+	display:table;
+}
+
+/*Formulario Compra*/
+
+.datos{
+	width:90%;
+	background-color:#f7f7f7;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	padding-bottom:50px;
+}
+
+.datos h2{
+	text-transform:uppercase;
+	letter-spacing:3px;
+	font-size: 23px;
+    padding-top: 30px;
+    font-weight: 600;
+	color:#a6242a;
+	text-align:center;
+}
+
+.datos:after{
+	clear:both;
+	content:"";
+	display:table;
+}
+
+.form2{
+	padding:20px;
+	padding-top:5px;
+	margin-left:0%;
+	height:auto;
+}
+
+.label2{
+	font-size: 17px;
+	color: #fff;
+	line-height:1;
+	color:#666666;
+	font-weight:250!important;
+	text-align:left!important;
+	margin-top:20px;
+	width:80%;
+}
+
+.infogeneral2{
+	border: 1px solid #a6242a;
+	background-color:#ffffff;
+	color: #000;
+	height:35px;
+	width:80%;
+
+}
+
+.left3{
+  float:left;
+  width:50%;
+}
+
+.terms{
+	margin-top:30px!important;
+}
+
+.terminos{
+	color:#a6242a;
+	font-weight:bold;
+}
