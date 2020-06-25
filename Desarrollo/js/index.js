@@ -14,6 +14,7 @@ function getMovie(){
 		$("#peliculahoy").html('<h2>'+rest.proyecciones[0].titulo+'</h2><p>funciones '+rest.proyecciones[0].funciones[0]+'</p>')
 		$("#fechahoy").html('<p>'+rest.proyecciones[0].fechaProyeccion+'</p>')
 		$("#fechahoy2").html('<p>'+rest.proyecciones[0].fechaProyeccion+'</p>')
+		$("#sinopsishoy").html('<h2>'+rest.proyecciones[0].titulo+'</h2>')
 		$("#peliculamanana").html('<h2>'+rest.proyecciones[1].titulo+'</h2><p>funciones '+rest.proyecciones[1].funciones[0]+'</p>')
 		$("#fechamanana").html('<p>'+rest.proyecciones[1].fechaProyeccion+'</p>')
 		$("#fechamanana2").html('<p>'+rest.proyecciones[1].fechaProyeccion+'</p>')

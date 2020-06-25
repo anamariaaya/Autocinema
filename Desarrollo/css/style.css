@@ -284,7 +284,7 @@ body{
 }
 .peliculassec{
 	width:90%;
-	height:550px;
+	min-height:100%;
 	display:flex;
 	margin:auto;
 }
