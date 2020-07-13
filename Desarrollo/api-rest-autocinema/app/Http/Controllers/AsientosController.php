@@ -13,7 +13,7 @@ use App\asientos_ocupados;
 class AsientosController extends Controller
 {
     public function getAsientos( Request $request ) {
-        
+        $this->eliminiarReservas();
         $params_array = [
             'idProyeccion' => $request['idProyeccion'],
         ];
@@ -66,21 +66,135 @@ class AsientosController extends Controller
                 'message' =>"Data not found"
             );
         }
-        $this->eliminiarReservas();
+        
 
         return response()->json($data,$data["code"]);
         
         
     }
 
+    public function reservarAsientos ( Request $request ) {
+ 
+        $params_array = [ 
+            "idProyeccion" => $request["idProyeccion"],
+            "idAsiento"    => json_decode($request["idAsiento"], true)
+        ];
+
+        if( !empty( $params_array ) ){
+
+            $validate = \Validator::make( $params_array, [
+                "idProyeccion" => "required|integer",
+                "idAsiento"    => "required"
+            ]);
+
+            if ( $validate->fails() ){
+
+                $data = array(
+                    'code'    => 405,
+                    'status'  => 'Bad request',
+                    'message' => 'Data Invalid',
+                    'errors'  => $validate->errors()
+                );
+
+            } else {
+                $guardado = [];
+                foreach( $params_array["idAsiento"] as $asientos ) {
+                    $asientosReservados =  new asientos_ocupados();
+                    $asientosReservados->proyeccion_id = $params_array["idProyeccion"];
+                    $asientosReservados->asientos_id = $asientos;
+                    $asientosReservados->reservado = false;
+                    $guardado[] = ( $asientosReservados->save() ) ? $asientos : null ;
+                    
+                }
+                if ( !empty($guardado) ){
+                    $data = array(
+                        'code'   =>200,
+                        'status' =>'success',
+                        'respuesta' =>'Se reservo con extio el asiento '
+                    );
+                } else {
+                    $data = array(
+                        'code'   =>404,
+                        'status' =>'error',
+                        'respuesta' =>'Hubo un error al reservar el asiento'
+                    );
+                }
+                
+
+            }
+
+        } else {
+
+            $data = array(
+                'code'    => 400,
+                'status'  => 'error',
+                'message' =>"Data not found"
+            );
+
+        }
+        return response()->json($data,$data["code"]);
+    }
+
+    public function crearAsientos ( Request $request ){
+        
+        $params_array = [
+            'columnas'  => $request["columnas"] ,
+            'filas'     => $request["filas"] ,
+            'idsala'    => $request["idsala"]
+        ];
+        if ( !empty( $params_array ) ){
+            $validate = \Validator::make($params_array , [
+                'columnas' => 'required|string',
+                'filas'    => 'required|integer',
+                'idsala'   => 'required|integer'
+            ] );
+
+            if ( $validate->fails() ){
+
+                $data = array(
+                    'code'    => 405,
+                    'status'  => 'Bad request',
+                    'message' => 'Data Invalid',
+                    'errors'  => $validate->errors()
+                );
+
+            } else {
+                // Validar la capacidad de la sala
+                for ( $i=1 ; $i <= $request["filas"] ; $i++ ){
+                    $datosGuardar[] = [
+                        'sala_id'     => $request["idsala"],
+                        'descripcion' => strtoupper($request["columnas"]).$i,
+                        'created_at'  => date('Y-m-d H:i'),
+                        'update_at'   => date('Y-m-d H:i')
+                    ];
+                }
+                
+                $asientos =  asientos::insert($datosGuardar);
+                $respuesta = ( $asientos ) ? 'Se guardo los asientos con exito' : 'Hubo un error al guardar los asientos';
+                $data = array(
+                    'code'      =>200,
+                    'status'    =>'success',
+                    'respuesta' => $respuesta
+                );
+            }
+        } else {
+            $data = array(
+                'code'    => 400,
+                'status'  => 'error',
+                'message' =>"Data not found"
+            );
+        }
+        return response()->json($data,$data["code"]);
+    }
+
     private function eliminiarReservas (  ) {
         // se eliminan todas las reservas que tengas mas de 10 minutos en transacion
         $asientosReservados = asientos_ocupados::whereRaw('asientos_ocupados.reservado = false and TIMESTAMPDIFF(MINUTE, asientos_ocupados.created_at, now() ) >= 10' )
         ->delete();
-        if( $asientosReservados ) {
-            echo 'eliminado correctamente';
-        } else {
-            echo 'hubo un error al elimininar las reservas';
-        }
+        // if( $asientosReservados ) {
+        //     echo 'eliminado correctamente';
+        // } else {
+        //     echo 'hubo un error al elimininar las reservas';
+        // }
     }
 }
