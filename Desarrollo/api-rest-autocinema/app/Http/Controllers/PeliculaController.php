@@ -52,7 +52,7 @@ class PeliculaController extends Controller
             ] );
             if ( $validate->fails() ){
                 $data = [
-                    'code'    => 405,
+                    'code'    => 400,
                     'status'  => 'Bad request',
                     'message' => 'Data Invalid',
                     'errors'  => $validate->errors()
@@ -111,7 +111,7 @@ class PeliculaController extends Controller
         ]);
         if( $validate->fails() ){
             $data = array(
-                'code'    => 405,
+                'code'    => 400,
                 'status'  => 'Bad request',
                 'message' => 'Data Invalid',
                 'errors'  => $validate->errors()

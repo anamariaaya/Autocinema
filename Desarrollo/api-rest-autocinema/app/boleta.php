@@ -13,10 +13,6 @@ class boleta extends Model
         'cliente_id','proyeccion_id','asiento','tipo_id'
     ];
 
-    public function tipo_boleta(){
-        return $this->belongsTo('App\tipo_boleta' , "tipo_id");
-    }
-
     public function proyeccion() {
         return $this->belongsTo("App\proyeccion", "proyeccion_id");
     }

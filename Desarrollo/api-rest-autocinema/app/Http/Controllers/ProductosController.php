@@ -32,9 +32,10 @@ class ProductosController extends Controller
                     'errors'  => $validate->errors()
                 );	
         	} else{
-        		$productos = productos::select('productos.nombre', 'productos.descripcion as desProducto' , 'productos.costo' , 'categoria_producto.descripcion' ,'productos.id')
-		        ->join('categoria_producto' , 'categoria_producto.id' , '=' , 'productos.categoria_id')
-		        ->where('categoria_producto.id', $params_array["idCategoria"])
+        		$productos = productos::select('productos.id', 'productos.descripcion as desProducto' , 'productos.costo' , 'sc.descripcion as subCategoria' ,'c.descripcion as categoria ')
+                ->join('subCategoria as sc' , 'sc.id' , '=' , 'productos.subCategoria_id')
+		        ->join('categoria_producto as c' , 'sc.categoria_producto_id' , '=' , 'c.id')
+		        ->where('c.id', $params_array["idCategoria"])
 		        ->limit( $params_array["cantidad"] )
 		        ->get();
 

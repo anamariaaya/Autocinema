@@ -16,10 +16,6 @@ class proyeccion extends Model
         return $this->belongsTo('App\sala' , 'sala_id');
     }
 
-    public function asiento_ocupados(){
-        return $this->hasMany('App\asientos_ocupados');
-    }
-
     public function pelicula(){
         return $this->belongsTo('App\pelicula', 'pelicula_id');
     }

@@ -20,12 +20,7 @@ Route::get('/', function () {
 Route::post('/proyecciones' , 'ProyeccionController@getProyecciones');
 Route::post('/proyeccion' , 'ProyeccionController@getProyeccion');
 Route::post('/productos' , 'ProductosController@getProductos');
-Route::post('/asientos' , 'AsientosController@getAsientos');
 Route::post('/resumen' , 'TransaccionController@setResumen');
-
-// dejar los asiento reservados
-Route::post('/reservarAsiento' , 'AsientosController@reservarAsientos');
-Route::post('/agregarasientos', 'AsientosController@crearAsientos');
 
 // sala
 Route::resource('salas', 'SalaController');

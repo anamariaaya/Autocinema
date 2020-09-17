@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 11-06-2020 a las 18:53:34
+-- Tiempo de generación: 04-06-2020 a las 22:41:13
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.2.18
 
@@ -195,49 +195,6 @@ INSERT INTO `boleta` (`id`, `cliente_id`, `proyeccion_id`, `asiento`, `created_a
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `boleta_productos`
---
-
-DROP TABLE IF EXISTS `boleta_productos`;
-CREATE TABLE IF NOT EXISTS `boleta_productos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `boleta_id` int(11) DEFAULT NULL,
-  `producto_id` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_boleta_productos_idx` (`boleta_id`),
-  KEY `fk_productos_clientes_idx` (`producto_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `boleta_productos`
---
-
-INSERT INTO `boleta_productos` (`id`, `boleta_id`, `producto_id`, `created_at`, `updated_at`, `cantidad`) VALUES
-(1, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(2, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(3, 1, 3, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(4, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(5, 2, 4, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(6, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(7, 2, 3, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(8, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(9, 5, 10, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(10, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(11, 6, 7, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(12, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(13, 6, 6, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(14, 1, 1, '2020-06-11 12:36:07', '2020-06-11 12:36:07', 2),
-(15, 15, 3, '2020-06-11 12:41:35', '2020-06-11 12:41:35', 1),
-(16, 15, 7, '2020-06-11 12:41:35', '2020-06-11 12:41:35', 2),
-(17, 15, 1, '2020-06-11 12:41:35', '2020-06-11 12:41:35', 1),
-(18, 15, 2, '2020-06-11 12:41:35', '2020-06-11 12:41:35', 2);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `categoria_producto`
 --
 
@@ -255,10 +212,10 @@ CREATE TABLE IF NOT EXISTS `categoria_producto` (
 --
 
 INSERT INTO `categoria_producto` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'Crispeta', '2020-06-03 00:00:00', '2020-06-03 00:00:00'),
-(2, 'Combos', '2020-06-06 00:00:00', '2020-06-06 00:00:00'),
-(3, 'Bebidas', '2020-06-06 00:00:00', '2020-06-06 00:00:00'),
-(4, 'A la carte', '2020-06-06 00:00:00', '2020-06-06 00:00:00');
+(1, 'Crispetas', '2020-06-04 00:00:00', '2020-06-04 00:00:00'),
+(2, 'Combos', '2020-06-04 00:00:00', '2020-06-04 00:00:00'),
+(3, 'Bebidas', '2020-06-04 00:00:00', '2020-06-04 00:00:00'),
+(4, 'A la Carta', '2020-06-04 00:00:00', '2020-06-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -310,6 +267,33 @@ INSERT INTO `cliente` (`id`, `nombre`, `email`, `telefono`, `created_at`, `updat
 (1, 'Andres Felipe ', 'andres.lopezma@hotmail.com', '7762039', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
 (2, 'Alexander', 'alex@hotmail.com', '315465897', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
 (3, 'Usuario 3', 'usuario@hotmai.com', '31546895', '2020-05-22 00:00:00', '2020-05-22 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes_productos`
+--
+
+DROP TABLE IF EXISTS `clientes_productos`;
+CREATE TABLE IF NOT EXISTS `clientes_productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cliente_id` int(11) DEFAULT NULL,
+  `producto_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cliente_productos_idx` (`cliente_id`),
+  KEY `fk_productos_clientes_idx` (`producto_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `clientes_productos`
+--
+
+INSERT INTO `clientes_productos` (`id`, `cliente_id`, `producto_id`, `created_at`, `updated_at`, `cantidad`) VALUES
+(1, 2, 1, '2020-05-22 00:00:00', '2020-05-22 00:00:00', 4),
+(2, 3, 10, '2020-05-22 00:00:00', '2020-05-22 00:00:00', 5);
 
 -- --------------------------------------------------------
 
@@ -383,26 +367,34 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `updated_at` datetime DEFAULT NULL,
   `costo` decimal(10,0) DEFAULT NULL,
   `categoria_id` int(11) NOT NULL,
-  `nombre` text NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_categoria_id` (`categoria_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`id`, `descripcion`, `created_at`, `updated_at`, `costo`, `categoria_id`, `nombre`) VALUES
-(1, 'Crispetas Grandes', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '15000', 1, 'Crispetas'),
-(2, 'Crispetas pequeñas', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '5000', 1, 'Crispetas'),
-(3, 'Crispetas medianas', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '10000', 1, 'Crispetas'),
-(4, 'Geseosa Grande', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '18000', 3, 'Gaseosas'),
-(5, 'gaseosas Pequeñas', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '6000', 1, 'Gaseosas'),
-(6, 'Gaseosa mediana', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '11000', 3, 'Gaseosas'),
-(7, 'combo duo gaseosa y crispeta medianas', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '18000', 2, 'combo duo gaseosa y crispeta medianas'),
-(8, 'combo pop', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '20000', 1, 'combo pop'),
-(9, 'combo 3 en 1', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '420', 2, 'combo 3 en 1'),
-(10, 'Groovy', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '18000', 1, 'Hamburguesas ');
+(1, 'Crispeta pequeña', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '100', 1, 'Crispetas'),
+(2, 'Crispetas Grandes', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '200', 1, 'Crispetas'),
+(3, 'Crispetas medianas', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '300', 1, 'Crispetas'),
+(4, 'Gaseosa grande', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '150', 3, 'Gaseosas'),
+(5, 'Gaseosa pequeña', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '240', 3, 'Gaseosas'),
+(6, 'Gaseosa pequeña', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '225', 3, 'Gaseosas'),
+(7, 'Combo duo', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '500', 2, 'Combo duo'),
+(8, 'Combo Pop', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '520', 2, 'Combo Pop'),
+(9, 'Combo max', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '420', 2, 'Combo Max'),
+(10, 'Groovy', '2020-05-22 00:00:00', '2020-05-22 00:00:00', '800', 4, 'Hamburguesas '),
+(11, 'OH LALA', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '20000', 4, 'HAMBURGUESA'),
+(12, 'VASELINA', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '25000', 4, 'HAMBURGUESAS '),
+(13, 'TRAVOLTA', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '10000', 4, 'HOT DOG'),
+(14, 'DICAPRIO', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '13000', 4, 'HOT DOG'),
+(15, 'ANGELICA', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '15000', 4, 'HOT DOG'),
+(16, 'TRAVOLTA', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '10000', 4, 'PAPAS FRITAS'),
+(17, 'DICAPRIO', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '13000', 4, 'PAPAS FRITAS'),
+(18, 'ANGELICA', '2020-06-04 00:00:00', '2020-06-04 00:00:00', '15000', 4, 'PAPAS FRITAS');
 
 -- --------------------------------------------------------
 
@@ -422,19 +414,21 @@ CREATE TABLE IF NOT EXISTS `proyeccion` (
   PRIMARY KEY (`id`),
   KEY `fk_pelicula_id_idx` (`pelicula_id`),
   KEY `fk_id_sala_idx` (`sala_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `proyeccion`
 --
 
 INSERT INTO `proyeccion` (`id`, `pelicula_id`, `sala_id`, `horario_inicio`, `horario_fin`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, '2020-06-10 18:00:00', '2020-06-10 19:20:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(2, 1, 2, '2020-06-10 09:00:00', '2020-06-10 11:30:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(3, 3, 1, '2020-06-10 10:30:00', '2020-06-10 10:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(4, 2, 2, '2020-06-14 14:00:00', '2020-06-14 16:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(5, 2, 2, '2020-06-11 08:30:00', '2020-06-11 11:15:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(6, 3, 1, '2020-06-12 07:30:00', '2020-06-12 10:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00');
+(1, 1, 3, '2020-06-03 18:00:00', '2020-06-03 19:20:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(2, 1, 2, '2020-06-04 09:00:00', '2020-06-04 11:30:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(3, 3, 1, '2020-06-05 07:30:00', '2020-06-05 10:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(4, 2, 2, '2020-06-21 14:00:00', '2020-06-21 16:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(5, 2, 2, '2020-05-25 08:30:00', '2020-05-22 11:15:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(6, 2, 1, '2020-06-05 04:30:00', '2020-06-05 10:00:00', '2020-06-02 00:00:00', '2020-06-02 00:00:00'),
+(7, 1, 1, '2020-06-21 13:00:00', '2020-06-21 15:00:00', '2020-06-02 00:00:00', '2020-06-02 00:00:00'),
+(8, 2, 3, '2020-06-21 11:00:00', '2020-06-21 16:00:00', '2020-06-04 00:00:00', '2020-06-04 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -511,10 +505,10 @@ ALTER TABLE `boleta`
   ADD CONSTRAINT `fk_tipo_id` FOREIGN KEY (`tipo_id`) REFERENCES `tipo_boleta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Filtros para la tabla `boleta_productos`
+-- Filtros para la tabla `clientes_productos`
 --
-ALTER TABLE `boleta_productos`
-  ADD CONSTRAINT `fk_boleta_productos` FOREIGN KEY (`boleta_id`) REFERENCES `boleta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ALTER TABLE `clientes_productos`
+  ADD CONSTRAINT `fk_cliente_productos` FOREIGN KEY (`cliente_id`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_productos_clientes` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
