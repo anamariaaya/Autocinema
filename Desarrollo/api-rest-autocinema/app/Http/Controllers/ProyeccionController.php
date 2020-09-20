@@ -31,25 +31,34 @@ class ProyeccionController extends Controller
                     'errors'  => $validate->errors()
                 ];
             } else {
-                $peliculas = pelicula::selectRaw('pelicula.id, pelicula.titulo, pelicula.imagen, date(pr.horario_inicio) fechaFuncion, time(pr.horario_inicio) horaFuncion, adddate(pr.horario_inicio, interval 15 minute)  hora_inicio, (select count(*) from boleta where proyeccion_id = pr.id) boletasVendidas, s.capacidad ')
+                $peliculas = pelicula::selectRaw('pelicula.titulo, pelicula.id, date(pr.horario_inicio) fechaFuncion , pelicula.imagen, pelicula.sinopsis, pelicula.duracion')
                 ->join("proyeccion as pr", "pr.pelicula_id" , '=' , 'pelicula.id')
                 ->join("sala as s", "s.id","=","pr.sala_id")
                 ->whereRaw('pr.horario_inicio >= now()')
+                ->groupBy('pelicula.titulo' , 'fechaFuncion', 'pelicula.id','pelicula.imagen','pelicula.duracion','pelicula.sinopsis')
+                ->orderBy('fechaFuncion', 'asc' , 'pelicula.titulo')
                 ->limit($params_array["cantidad"])
                 ->get();
-                
+
                 foreach ( $peliculas as $pelicula ){
-                    $funcionDisponible = '';
-                    if ($pelicula->boletasVendidas >= $pelicula->capacidad || strtotime($pelicula->hora_inicio) <= strtotime(date("d-m-Y H:i:00",time()))) {
-                        $funcionDisponible = 'Función no tiene asientos disponibles';
+                    
+                    $horas = proyeccion::selectRaw('time(horario_inicio) horaFuncion')
+                    ->where('pelicula_id','=',$pelicula->id)
+                    ->whereRaw("date(horario_inicio) = '".$pelicula->fechaFuncion."'")
+                    ->get();
+                    $funciones = [];
+                    foreach ($horas as $hora ) {
+                        $funciones[] = $hora->horaFuncion;
                     }
+                    
                     $proyecciones[]= array(
                         "idPelicula"        => $pelicula->id,
                         "titulo"            => $pelicula->titulo,
+                        "sinopsis"          => $pelicula->sinopsis,
+                        "duracion"          => $pelicula->duracion,
                         "fechaProyeccion"   => $pelicula->fechaFuncion,
-                        "horaFuncion"       => $pelicula->horaFuncion,
                         "imagen"            => $pelicula->imagen,
-                        'funcionDisponible' => $funcionDisponible
+                        "funciones"         => $funciones
                     );
                 }
                 if (!isset($proyecciones)) {
