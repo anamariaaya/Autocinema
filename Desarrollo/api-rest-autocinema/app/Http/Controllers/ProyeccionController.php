@@ -110,7 +110,7 @@ class ProyeccionController extends Controller
                 ];
             } else {
 
-                $peliculas = pelicula::selectRaw('pelicula.id, pelicula.titulo, pelicula.imagen, date(pr.horario_inicio) fechaFuncion, time(pr.horario_inicio) horaFuncion, adddate(pr.horario_inicio, interval 15 minute)  hora_inicio, (select count(*) from boleta where proyeccion_id = pr.id) boletasVendidas, s.capacidad ')
+                $peliculas = pelicula::selectRaw('pr.id idProyeccion, pelicula.titulo, pelicula.imagen, date(pr.horario_inicio) fechaFuncion, time(pr.horario_inicio) horaFuncion, adddate(pr.horario_inicio, interval 15 minute)  hora_inicio, (select count(*) from boleta where proyeccion_id = pr.id) boletasVendidas, s.capacidad ')
                 ->join("proyeccion as pr", "pr.pelicula_id" , '=' , 'pelicula.id')
                 ->join("sala as s", "s.id","=","pr.sala_id")
                 ->whereDate('pr.horario_inicio', $params_array["fechaProyeccion"])
@@ -122,7 +122,7 @@ class ProyeccionController extends Controller
                         $funcionDisponible = 'Función no disponible';
                     }
                     $proyecciones[]= array(
-                        "idPelicula"        => $pelicula->id,
+                        "idProyeccion"      => $pelicula->idProyeccion,
                         "titulo"            => $pelicula->titulo,
                         "fechaProyeccion"   => $pelicula->fechaFuncion,
                         "horaFuncion"       => $pelicula->horaFuncion,

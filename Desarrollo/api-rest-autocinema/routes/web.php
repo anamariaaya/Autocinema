@@ -21,6 +21,7 @@ Route::post('/proyecciones' , 'ProyeccionController@getProyecciones');
 Route::post('/proyeccion' , 'ProyeccionController@getProyeccion');
 Route::post('/productos' , 'ProductosController@getProductos');
 Route::post('/resumen' , 'TransaccionController@setResumen');
+Route::get('/tipoBoleta' , 'TipoBoletaController@getTipoBoleta');
 
 // sala
 Route::resource('salas', 'SalaController');

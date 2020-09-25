@@ -10,8 +10,12 @@ class boleta extends Model
     protected $table = "boleta";
 
     protected $fillable = [
-        'cliente_id','proyeccion_id','asiento','tipo_id'
+        'cliente_id','proyeccion_id','tipo_boleta_id'
     ];
+
+    public function tipo_boleta(){
+        return $this->belongsTo('App\tipo_boleta' , "tipo_boleta_id");
+    }
 
     public function proyeccion() {
         return $this->belongsTo("App\proyeccion", "proyeccion_id");

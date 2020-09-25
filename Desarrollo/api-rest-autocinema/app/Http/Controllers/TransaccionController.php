@@ -9,34 +9,11 @@ use App\Http\Controllers\Controller;
 use App\cliente;
 use App\clientes_productos;
 use App\boleta;
-use App\asientos_ocupados;
 
 class TransaccionController extends Controller
 {
     public function setResumen( Request $request ) {
 
-        // $arr[] = [
-        //     "idProyeccion"=> 1,
-        //     "boleta" => [
-        //         "asiento" => "A3",
-        //         "tipoAsiento" => 1
-        //     ],
-        //     "asientos" => [
-        //         "idAsiento" => 1
-        //     ],
-        //     "confiteria" => [
-        //         ["idProducto" =>1 , "cantidad" => 2],
-        //         ["idProducto" =>2 , "cantidad" => 1]
-        //     ],
-        //     "cliente" => [
-        //         "nombre" => "Andres Felipe Lopez Manrique",
-        //         "cedula" => 1024580021,
-        //         "direccion" => "Crr 10 # 11-59 sur",
-        //         "correo" => "andres.lopezma@hotmail.com",
-        //         "placa" => "ALD234",
-        //         "telefono" => 7751904
-        //     ]
-        // ];
         $params_array = [
             "idProyeccion" => $request["idProyeccion"],
             "boleta"       => json_decode( $request["boleta"] , true ),

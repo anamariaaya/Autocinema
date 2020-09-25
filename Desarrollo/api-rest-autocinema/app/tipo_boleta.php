@@ -9,7 +9,7 @@ class tipo_boleta extends Model
     protected $table = "tipo_boleta";
 
     protected $fillable = [
-        "descripcion" , "costo"
+        "nombre" , "descripcion", "costo_fijo" ,"costo_descuento"
     ];
     
     public function boletas(){
