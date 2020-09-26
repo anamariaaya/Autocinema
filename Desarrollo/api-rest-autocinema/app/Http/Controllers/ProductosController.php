@@ -33,7 +33,7 @@ class ProductosController extends Controller
                 );	
         	} else{
         		$productos = productos::select('productos.id', 'productos.descripcion as desProducto' , 'productos.costo' , 'sc.descripcion as subCategoria' ,'c.descripcion as categoria ')
-                ->join('subCategoria as sc' , 'sc.id' , '=' , 'productos.subCategoria_id')
+                ->join('subcategoria as sc' , 'sc.id' , '=' , 'productos.subCategoria_id')
 		        ->join('categoria_producto as c' , 'sc.categoria_producto_id' , '=' , 'c.id')
 		        ->where('c.id', $params_array["idCategoria"])
 		        ->limit( $params_array["cantidad"] )
