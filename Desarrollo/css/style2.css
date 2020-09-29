@@ -740,7 +740,7 @@ btn-lg{
 .pasosprin{
 	width:100%;
 	display:inline-flex;
-	margin-top:50px;
+	margin-top:10px;
 }
 
 .pasos{
@@ -867,99 +867,133 @@ ul#tabs li.active3 {
 
 .puestos{
 	width:50%;
-	height:500px;
-	background-image:url('../img/boletas/puestos.png');
 	background-repeat:no-repeat;
 	background-size:contain;
 	margin-left:7%;
 }
 
-/*Prueba Puestos*/
-
-.seatSelection {
-  text-align: center;
-  padding: 5px;
-	margin-top:20px;
-	width:100%!important;
-	}
-
-.seatsReceipt {text-align: center;}
-
-.seatNumber {
-    display: inline-flex;
-	font-size:9px;
+.seleccionentrada{
+	color:#a6242a;
 	font-weight:bold;
-    padding: 0px!important;
-    color: #000000!important;
-    border-radius: 5px;
-    cursor: default;
-    height: 30px!important;
-    width: 25px!important;
-    line-height: 25px;
-    text-align:right!important;
-	background-image:url('../img/boletas/puesto-libre.png');
-	background-position:center;
-	background-size:contain;
-	background-repeat:no-repeat;
-	border:none!important;
- }
-
-.col-lg-6 {
-    width: 95%!important;
-}
-
-.seatRow {padding: 10px;
-width:100%;}
-
-.seatSelected {
-    background-image:url('../img/boletas/puesto-seleccionado.png');
-	background-position:center;
-	background-size:contain;
-	background-repeat:no-repeat;
-    color:#000000!important;
-	border:none!important;
- }
-
-.seatUnavailable {background-image:url('../img/boletas/puesto-ocupado.png');}
-
-.seatRowNumber {
-    clear: none;
-    display: inline;
-	border:none!important;
- }
-:focus {
-    outline: -webkit-focus-ring-color auto 0px;
-}
-.hidden {display: none;}
-
-.seatsAmount {max-width: 2em;}
-
-.ajuste{
-	margin-left:36%;
-	margin-top:25px;
-}
-
-.guia{
-	width:20%;
-	display:block;
-	margin-left:80%;
-}
-
-
-.guia2{
-	display:inline-flex;
-	width:80%;
-}
-
-.guia2 img{
-	width:30%;
-}
-
-.guia2 p{
-	font-size:12px;
-	font-weight:bold;
+	text-align:center;
+	font-size:30px;
 	text-transform:uppercase;
+	margin-top:-10px;
+	margin-bottom:0px;
+}
+
+.entrada{
+	display:block;
+	width:90%;
+	margin.left:auto;
+	margin-right:auto;
+	padding:0px 15px;
+}
+
+.entrada:hover{
+	border:2px solid red;
+	transform:scale(1.05,1.05);
+	background-color:#f0f0f0;
+}
+
+.entrada2{
+	display:inline-flex;
+	width:100%;
 	margin-top:20px;
+}
+
+.entrada2 img{
+	width:25%;
+	height:120px;
+}
+
+.entradatxt{
+	display:block;
+	text-align:left;
+	margin-left:3%;
+}
+
+.entradatxt h3{
+	color:#a6242a;
+	font-weight:bold;
+	font-size:30px;
+	text-transform:uppercase;
+	margin-bottom:0px;
+	margin-top:0px;
+	letter-spacing:2px;
+}
+
+.entradatxt p{
+	color: #777777;
+    padding-top: 10px;
+    font-size: 18px;
+	letter-spacing:2px;
+	line-height:18px;
+}
+
+.diferenciaprecio{
+	display:inline-flex;
+	width:100%;
+}
+
+.precioantes{
+	width:50%;
+}
+
+.precioantes h4{
+	color: #777777;
+    font-size: 18px;
+	letter-spacing:2px;
+	text-align:left;
+	margin-bottom:5px;
+	margin-top:-40px;
+	margin-left:60%;
+}
+
+.precioantes h5{
+	color: #777777;
+	font-weight:bold;
+	font-size:20px;
+	text-transform:uppercase;
+	text-align:left;
+	margin-top:0px;
+	margin-left:60%;
+}
+
+.preciodespues{
+	width:50%;
+}
+
+
+.preciodespues h4{
+	color: #777777;
+    font-size: 18px;
+	letter-spacing:2px;
+	text-align:right;
+	margin-bottom:5px;
+	margin-top:-40px;
+}
+
+.preciodespues h5{
+	color:#a6242a;
+	font-weight:bold;
+	font-size:20px;
+	text-transform:uppercase;
+	text-align:right;
+	margin-top:0px;
+}
+
+.saltar{
+	border:none;
+	background-color:white;
+	color: #777777;
+    text-align: rigth;
+    font-size: 20px;
+	text-transform:uppercase;
+	font-weight:bold;
+	float:right;
+	margin-right:25%;
+	margin-top:-110px;
 }
 
 .pagomenu{
@@ -971,6 +1005,9 @@ width:100%;}
 	text-align:center;
 	text-transform:uppercase;
 	color:#a6242a;
+	margin-top:-30px;
+	font-weight:bold;
+	margin-bottom:20px;
 
 }
 
@@ -1020,7 +1057,7 @@ width:100%;}
  background-color:#f0f0f0; 
  text-align:left;
  font-size:17px;
- font-weight:500; 
+ font-weight: bold!important;
  padding-top:10px;
  padding-bottom:10px;
  display:block;
@@ -1606,7 +1643,9 @@ width:100%;}
 	.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
 		   outline: none !important;
 	}
-	
+
+/*Resumen*/
+
 .resumen{
 	width:60%;
 	display:block;
@@ -1639,7 +1678,7 @@ width:100%;}
 }
 
 .resumenpeliimg img{
-	width:85%;
+	width:65%;
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
@@ -1655,14 +1694,19 @@ width:100%;}
 	font-size:30px;
 	padding-left:10px;
 	text-align:left;
+	margin-top:10px;
+	margin-bottom:0px;
+	font-weight:bold;
 }
 
 .resumenpeliinfo h4{
 	text-transform:uppercase;
 	color:#777777;
-	font-size:25px;
+	font-size:20px;
 	padding-left:10px;
 	text-align:left;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
 .resumenpeliinfo p{
@@ -1671,6 +1715,8 @@ width:100%;}
 	font-size:20px;
 	padding-left:10px;
 	text-align:left;
+	margin-top:0px;
+	margin-bottom:0px;
 }
 
 .resumenpeliprecio{
@@ -1701,6 +1747,7 @@ width:100%;}
 	font-size:25px;
 	padding-left:25px;
 	text-align:left;
+	letter-spacing:2px;
 }
 
 .confiteriaprecios{
@@ -1713,14 +1760,17 @@ width:100%;}
 	font-size:25px;
 	text-align:right;
 	padding-right:30px;
+	font-weight:bold;
 }
-
+/*Pendiente*/
 .resumentitconfi{
 	text-transform:uppercase;
 	color:#777777;
 	font-size:30px;
 	padding-left:25px;
 	text-align:left;
+	font-weight:bold;
+	letter-spacing:2px;
 }
 
 .totalpagar{
@@ -1738,9 +1788,10 @@ width:100%;}
 
 .totalpagar2 h4{
 	text-transform:uppercase;
-	color:#1a1a1a;
+	color:#777777;
 	font-size:25px;
 	text-align:center;
+	font-weight:bold;
 }
 
 .totalpagar2 p{
