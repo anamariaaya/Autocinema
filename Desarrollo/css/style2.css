@@ -1764,7 +1764,7 @@ ul#tabs li.active3 {
 	padding-right:30px;
 	font-weight:bold;
 }
-/*Pendiente*/
+
 .resumentitconfi{
 	text-transform:uppercase;
 	color:#777777;
@@ -1989,4 +1989,11 @@ ul#tabs li.active3 {
 .terminos{
 	color:#a6242a;
 	font-weight:bold;
+}
+
+.formacompanantes{
+	padding:20px;
+	padding-top:20px;
+	margin-left:13.5%;
+	height:180px;
 }
