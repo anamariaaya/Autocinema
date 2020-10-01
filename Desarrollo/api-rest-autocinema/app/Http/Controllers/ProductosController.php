@@ -32,7 +32,7 @@ class ProductosController extends Controller
                     'errors'  => $validate->errors()
                 );	
         	} else{
-        		$productos = productos::select('productos.id', 'productos.descripcion as desProducto' , 'productos.costo', 'sc.descripcion as subCategoria', 'c.descripcion as categoria')
+        	   $productos = productos::select('productos.id', 'productos.descripcion as desProducto' , 'productos.costo' , 'sc.descripcion as subCategoria' ,'c.descripcion as categoria ','sc.imagen as subCatImagen')
                 ->join('subcategoria as sc' , 'sc.id' , '=' , 'productos.subCategoria_id')
 		        ->join('categoria_producto as c' , 'sc.categoria_producto_id' , '=' , 'c.id')
 		        ->get();
