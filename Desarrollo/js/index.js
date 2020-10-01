@@ -3,21 +3,35 @@
 $(document).ready(function() {
     getMovie();
     getConfiteria();
-    
-    
 });
+
 var url = 'api-rest-autocinema/public/';
 // var url = 'http://api.autocinema33.com/';
+
 function getMovie() {
-    var data = {
-        'cantidad': 3,
-    }
+    var pos = 0;
+
+    var data = {'cantidad': 1000}
+
     $.post(url+'proyecciones', data).done(function(rest) {
         // $.post('http://127.0.0.1:8000/proyecciones',data).done(function(rest){
         // console.log(rest);
         var i = 1;
         var html = '';
         rest.proyecciones.forEach(element => {
+            if (pos==0){
+                html += '<div class="mySlides2 fade">';
+                html += '<div class="peliculassec">';
+
+                pos=1;
+            } else if (pos==4){
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="mySlides2 fade" style="display: none;" >';
+                html += '<div class="peliculassec">';
+
+                pos=1;
+            }
 
             var funcion = '';
             if (element.imagen) {
@@ -70,42 +84,65 @@ function getMovie() {
                     '</div>'+
                 '</div>'+
             '</div>';
-            $('#proyecciones1').html(html);
+            
             i++;
+            pos++;
         });
 
+        html += '</div>';
+        html += '</div>';
 
+        $('#proyecciones1').html(html);
     }).fail(function(err) {
 
     });
 }
 
 function getConfiteria() {
-    var data = {
-        cantidad: 3,
-        idCategoria: 4
-    }
-    $.post(url+'productos', data).done(function(rest) {
-        var html = '';
+    var html = '';
+    var pos = 0;
 
+    var data = {cantidad: 0, idCategoria: 0}
+
+    $.post(url+'productos', data).done(function(rest) {
         rest.orders.forEach(respuesta => {
             var costo = (parseInt(respuesta.costo) > 10000) ? respuesta.costo.slice(0, 2) + 'K' : respuesta.costo;
+            
+            if (pos==0){
+                html += '<div class="mySlides5 fade">';
+                html += '<div class="combossec">';
+
+                pos=1;
+            } else if (pos==4){
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="mySlides5 fade" style="display: none;" >';
+                html += '<div class="combossec">';
+
+                pos=1;
+            }
+
             html += '<div class="combos">' +
                 '<img src="img/confiteria/combo.png" />' +
                 '<div class="descripcioncombos">' +
                 '<div class="titulocombos">' +
-                '<div class="textcombos">' + respuesta.nombre + '</div>' +
+                '<div class="textcombos">' + respuesta.subCategoria + '</div>' +
                 '<div class="preciocombo">' + costo + '</div>' +
                 '</div>' +
                 '<div class="subtextcombos">' + respuesta.desProducto + '</div>' +
                 '</div>' +
                 '</div>';
-            $('#confiteria').html(html);
-        })
-    }).fail(function(err) {
-        console.log('Error la traer los prouductos')
-    });
 
+            pos++;
+        });
+        
+        html += '</div>';
+        html += '</div>';
+        
+        $('#confiteria').html(html);
+    }).fail(function(err) {
+        console.log('Error al traer los productos')
+    });
 }
 
 function setMovie(id) {
