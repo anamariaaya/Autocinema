@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 30-09-2020 a las 16:48:11
+-- Tiempo de generación: 01-10-2020 a las 16:38:44
 -- Versión del servidor: 8.0.21
 -- Versión de PHP: 7.3.21
 
@@ -229,16 +229,19 @@ CREATE TABLE IF NOT EXISTS `pelicula` (
   PRIMARY KEY (`id`),
   KEY `fk_genero_id_idx` (`genero_id`),
   KEY `fk_clasificacion_id_idx` (`clasificacion_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `pelicula`
 --
 
 INSERT INTO `pelicula` (`id`, `titulo`, `portada`, `sinopsis`, `trailer`, `descripcion`, `duracion`, `clasificacion_id`, `genero_id`, `imagen`, `created_at`, `updated_at`) VALUES
-(1, 'Pelicula 1', 'portada pelicula 1', 'Sinopsis de la pelicula 1 ', 'Trailer de la pelicula 1', 'descripcion de la pelicula 1', '90', 1, 1, 'public/imagenes/poster-2.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(2, 'Pelicula 2', 'portada pelicual 2', 'sinopsis pelicula 2', 'trailer peliucla 2', 'descripcion de la pelicual 2', '120', 2, 2, 'public/imagenes/poster-2.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(3, 'Pelicula 3', 'portada pelicula 3', 'Sinopsis pelicula 3', 'trailer pelicula 3', 'descripcion pelicula 3', '200', 4, 3, 'public/imagenes/poster-2.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00');
+(1, 'Pelicula 1', 'portada pelicula 1', 'Sinopsis de la pelicula 1 ', 'Trailer de la pelicula 1', 'descripcion de la pelicula 1', '90', 1, 1, 'imagenes/poster-1.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(2, 'Pelicula 2', 'portada pelicual 2', 'sinopsis pelicula 2', 'trailer peliucla 2', 'descripcion de la pelicual 2', '120', 2, 2, 'imagenes/poster-2.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(3, 'Pelicula 3', 'portada pelicula 3', 'Sinopsis pelicula 3', 'trailer pelicula 3', 'descripcion pelicula 3', '200', 4, 3, 'imagenes/poster-3.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(4, 'Pelicula 4', 'portada pelicula 4', 'Sinopsis de la pelicula 4 ', 'Trailer de la pelicula 4', 'descripcion de la pelicula 4', '90', 1, 1, 'imagenes/poster-1.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(5, 'Pelicula 5', 'portada pelicual 5', 'sinopsis pelicula 5', 'trailer peliucla 5', 'descripcion de la pelicula 5 ', '120', 2, 2, 'imagenes/poster-2.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(6, 'Pelicula 6', 'portada pelicula 6', 'Sinopsis pelicula 6', 'trailer pelicula 6', 'descripcion pelicula 6', '200', 4, 3, 'imagenes/poster-3.png', '2020-05-22 00:00:00', '2020-05-22 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -292,21 +295,24 @@ CREATE TABLE IF NOT EXISTS `proyeccion` (
   PRIMARY KEY (`id`),
   KEY `fk_pelicula_id_idx` (`pelicula_id`),
   KEY `fk_id_sala_idx` (`sala_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `proyeccion`
 --
 
 INSERT INTO `proyeccion` (`id`, `pelicula_id`, `sala_id`, `horario_inicio`, `horario_fin`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, '2020-09-20 18:00:00', '2020-09-11 19:20:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(2, 1, 2, '2020-09-20 09:00:00', '2020-09-12 11:30:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(3, 3, 1, '2020-09-20 07:30:00', '2020-09-13 10:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(4, 2, 2, '2020-09-20 14:00:00', '2020-09-14 16:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
-(5, 2, 2, '2020-09-15 08:30:00', '2020-09-15 11:15:00', '2020-07-08 00:00:00', '2020-05-22 00:00:00'),
-(6, 2, 1, '2020-10-01 04:30:00', '2020-09-10 10:00:00', '2020-06-02 00:00:00', '2020-06-02 00:00:00'),
-(7, 1, 1, '2020-10-01 13:00:00', '2020-09-17 15:00:00', '2020-06-02 00:00:00', '2020-06-02 00:00:00'),
-(8, 2, 3, '2020-10-01 11:00:00', '2020-09-28 16:00:00', '2020-06-04 00:00:00', '2020-06-04 00:00:00');
+(1, 1, 3, '2020-10-02 18:00:00', '2020-09-11 19:20:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(2, 1, 2, '2020-10-02 09:00:00', '2020-09-12 11:30:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(3, 3, 1, '2020-10-02 07:30:00', '2020-09-13 10:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(4, 2, 2, '2020-10-02 14:00:00', '2020-09-14 16:00:00', '2020-05-22 00:00:00', '2020-05-22 00:00:00'),
+(5, 2, 2, '2020-10-02 08:30:00', '2020-09-15 11:15:00', '2020-07-08 00:00:00', '2020-05-22 00:00:00'),
+(6, 2, 1, '2020-10-02 04:30:00', '2020-09-10 10:00:00', '2020-06-02 00:00:00', '2020-06-02 00:00:00'),
+(7, 1, 1, '2020-10-02 13:00:00', '2020-09-17 15:00:00', '2020-06-02 00:00:00', '2020-06-02 00:00:00'),
+(8, 2, 3, '2020-10-02 11:00:00', '2020-09-28 16:00:00', '2020-06-04 00:00:00', '2020-06-04 00:00:00'),
+(9, 4, 1, '2020-10-02 18:39:31', '2020-10-03 18:20:00', '2020-09-30 18:20:00', NULL),
+(10, 5, 1, '2020-10-02 18:20:00', '2020-10-03 18:20:00', '2020-09-30 18:20:00', NULL),
+(11, 6, 1, '2020-10-02 18:20:00', '2020-10-03 18:20:00', '2020-09-30 18:20:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -344,6 +350,7 @@ DROP TABLE IF EXISTS `subcategoria`;
 CREATE TABLE IF NOT EXISTS `subcategoria` (
   `id` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `imagen` varchar(256) COLLATE utf8_spanish_ci DEFAULT NULL,
   `categoria_producto_id` int NOT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP,
@@ -355,16 +362,16 @@ CREATE TABLE IF NOT EXISTS `subcategoria` (
 -- Volcado de datos para la tabla `subcategoria`
 --
 
-INSERT INTO `subcategoria` (`id`, `descripcion`, `categoria_producto_id`, `created_at`, `updated_at`) VALUES
-(1, 'Crispetas', 1, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
-(2, 'Combo 1', 2, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
-(3, 'Gaseosas', 3, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
-(4, 'Hot dogs', 4, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
-(5, 'Nachos', 4, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
-(7, 'Combo 2', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26'),
-(8, 'Combo 3', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26'),
-(9, 'Combo 4', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26'),
-(10, 'Combo 5', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26');
+INSERT INTO `subcategoria` (`id`, `descripcion`, `imagen`, `categoria_producto_id`, `created_at`, `updated_at`) VALUES
+(1, 'Crispetas', 'public/imagenes/categoriaCrispetas.PNG', 1, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
+(2, 'Combo 1', 'public/imagenes/CategoriaCombos.PNG', 2, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
+(3, 'Gaseosas', 'public/imagenes/categoriaGaseosas.PNG', 3, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
+(4, 'Hot dogs', 'public/imagenes/categoriaHotDog.PNG', 4, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
+(5, 'Nachos', 'public/imagenes/categoriaNachos.PNG', 4, '2020-09-16 22:27:26', '2020-09-16 22:27:26'),
+(7, 'Combo 2', 'public/imagenes/CategoriaCombos.PNG', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26'),
+(8, 'Combo 3', 'public/imagenes/CategoriaCombos.PNG', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26'),
+(9, 'Combo 4', 'public/imagenes/CategoriaCombos.PNG', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26'),
+(10, 'Combo 5', 'public/imagenes/CategoriaCombos.PNG', 2, '2020-09-16 22:34:26', '2020-09-16 22:34:26');
 
 -- --------------------------------------------------------
 
