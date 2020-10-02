@@ -172,119 +172,123 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        //menú
-        function myFunction() {
-          var x = document.getElementById("myTopnav");
-          if (x.className === "topnav") {
-            x.className += " responsive";
-          } else {
-            x.className = "topnav";
-          }
-        }
-    </script>
-
-    <script>
-        //Slide principal
-        var slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
-            var dots = document.getElementsByClassName("dot");
-
-            if (n > slides.length) {slideIndex = 1}    
-            if (n < 1) {slideIndex = slides.length}
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-
-            slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
-        } // showSlides
-
-        //Slide Películas
-        var slideIndex2 = 1;
-        // showSlides2(slideIndex2);
-
-        // Next/previous controls
-        function plusSlides2(n) {
-            showSlides2(slideIndex2 += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide2(n) {
-            showSlides2(slideIndex2 = n);
-        }
-
-        function showSlides2(n) {
-          var x;
-          var slides2 = document.getElementsByClassName("mySlides2");
-          // var dots2 = document.getElementsByClassName("dot2");
-          if (n > slides2.length) {slideIndex2 = 1}
-          if (n < 1) {slideIndex2 = slides2.length}
-          for (x = 0; x < slides2.length; x++) {
-              slides2[x].style.display = "none";
-          }
-          // for (x = 0; x < dots2.length; x++) {
-          //     dots2[x].className = dots2[x].className.replace(" active2", "");
-          // }
-          slides2[slideIndex2-1].style.display = "block";
-          // dots2[slideIndex2-1].className += " active2";
-          // document.getElementById('myvideotag').pause();
-          // document.getElementById('myvideotag1').pause();
-          // document.getElementById('myvideotag2').pause();
-        }
-
-        //Slide Combos
-        var slideIndex5 = 1;
-
-        // Next/previous controls
-        function plusSlides5(n) {
-          showSlides5(slideIndex5 += n);
-        }
-
-        // Thumbnail image controls
-        function currentSlide5(n) {
-          showSlides5(slideIndex5 = n);
-        }
-
-        function showSlides5(n) {
-          var x;
-          var slides5 = document.getElementsByClassName("mySlides5");
-          // var dots5 = document.getElementsByClassName("dot5");
-          if (n > slides5.length) {slideIndex5 = 1}
-          if (n < 1) {slideIndex5 = slides5.length}
-          for (x = 0; x < slides5.length; x++) {
-              slides5[x].style.display = "none";
-          }
-          // for (x = 0; x < dots5.length; x++) {
-          //     dots2[x].className = dots2[x].className.replace(" active5", "");
-          // }
-          slides5[slideIndex5-1].style.display = "block";
-          // dots5[slideIndex5-1].className += " active5";
-          // document.getElementById('myvideotag').pause();
-          // document.getElementById('myvideotag1').pause();
-          // document.getElementById('myvideotag2').pause();
-        }
-    </script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
-    <script src="js/index.js" type="text/javascript"></script>
 </body>
+
+<script>
+    // menu
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+</script>
+
+<script>
+    //Slide principal
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    } // showSlides
+
+    //Slide Películas
+    var slideIndex2 = 1;
+    // showSlides2(slideIndex2);
+
+    // Next/previous controls
+    function plusSlides2(n) {
+        showSlides2(slideIndex2 += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide2(n) {
+        showSlides2(slideIndex2 = n);
+    }
+
+    function showSlides2(n) {
+      var x;
+      var slides2 = document.getElementsByClassName("mySlides2");
+      // var dots2 = document.getElementsByClassName("dot2");
+      if (n > slides2.length) {slideIndex2 = 1}
+      if (n < 1) {slideIndex2 = slides2.length}
+      for (x = 0; x < slides2.length; x++) {
+          slides2[x].style.display = "none";
+      }
+      // for (x = 0; x < dots2.length; x++) {
+      //     dots2[x].className = dots2[x].className.replace(" active2", "");
+      // }
+      slides2[slideIndex2-1].style.display = "block";
+      // dots2[slideIndex2-1].className += " active2";
+      // document.getElementById('myvideotag').pause();
+      // document.getElementById('myvideotag1').pause();
+      // document.getElementById('myvideotag2').pause();
+    }
+
+    //Slide Combos
+    var slideIndex5 = 1;
+
+    // Next/previous controls
+    function plusSlides5(n) {
+        showSlides5(slideIndex5 += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide5(n) {
+        showSlides5(slideIndex5 = n);
+    }
+
+    function showSlides5(n) {
+        var x;
+        var slides5 = document.getElementsByClassName("mySlides5");
+        // var dots5 = document.getElementsByClassName("dot5");
+
+        if (n > slides5.length) {slideIndex5 = 1}
+        if (n < 1) {slideIndex5 = slides5.length}
+
+        for (x = 0; x < slides5.length; x++) {
+            slides5[x].style.display = "none";
+        }
+
+        // for (x = 0; x < dots5.length; x++) {
+        //     dots2[x].className = dots2[x].className.replace(" active5", "");
+        // }
+
+        slides5[slideIndex5-1].style.display = "block";
+        // dots5[slideIndex5-1].className += " active5";
+        // document.getElementById('myvideotag').pause();
+        // document.getElementById('myvideotag1').pause();
+        // document.getElementById('myvideotag2').pause();
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+<script src="js/index.js" type="text/javascript"></script>
 </html>
