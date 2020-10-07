@@ -12,8 +12,7 @@ use App\pelicula;
 use App\Boleta;
 
 class ProyeccionController extends Controller
-{
-    
+{ 
 
     public function getProyecciones( Request $request ) {
         $params_array = [
@@ -31,20 +30,20 @@ class ProyeccionController extends Controller
                     'errors'  => $validate->errors()
                 ];
             } else {
-                $peliculas = pelicula::selectRaw('pelicula.titulo, pelicula.id, date(pr.horario_inicio) fechaFuncion , pelicula.imagen, pelicula.sinopsis, pelicula.duracion')
-                ->join("proyeccion as pr", "pr.pelicula_id" , '=' , 'pelicula.id')
-                ->join("sala as s", "s.id","=","pr.sala_id")
+                $peliculas = pelicula::selectRaw('pelicula.titulo, pelicula.id, date(pr.horario_inicio) fechaFuncion, pelicula.imagen, pelicula.portada, pelicula.sinopsis, pelicula.trailer, pelicula.duracion')
+                ->join("proyeccion as pr", "pr.pelicula_id", '=', 'pelicula.id')
+                ->join("sala as s", "s.id", "=", "pr.sala_id")
                 ->whereRaw('pr.horario_inicio >= now()')
-                ->groupBy('pelicula.titulo' , 'fechaFuncion', 'pelicula.id','pelicula.imagen','pelicula.duracion','pelicula.sinopsis')
-                ->orderBy('fechaFuncion', 'asc' , 'pelicula.titulo')
+                ->groupBy('pelicula.titulo', 'fechaFuncion', 'pelicula.id', 'pelicula.imagen', 'pelicula.duracion', 'pelicula.sinopsis')
+                ->orderBy('fechaFuncion', 'asc', 'pelicula.titulo')
                 ->limit($params_array["cantidad"])
                 ->get();
 
                 foreach ( $peliculas as $pelicula ){
-                    
                     $horas = proyeccion::selectRaw('time(horario_inicio) horaFuncion')
                     ->where('pelicula_id','=',$pelicula->id)
                     ->whereRaw("date(horario_inicio) = '".$pelicula->fechaFuncion."'")
+                    ->orderBy('horario_inicio', 'asc')
                     ->get();
                     $funciones = [];
                     foreach ($horas as $hora ) {
@@ -54,20 +53,23 @@ class ProyeccionController extends Controller
                     $proyecciones[]= array(
                         "idPelicula"        => $pelicula->id,
                         "titulo"            => $pelicula->titulo,
+                        "portada"           => $pelicula->portada,
                         "sinopsis"          => $pelicula->sinopsis,
+                        "trailer"           => $pelicula->trailer,
                         "duracion"          => $pelicula->duracion,
                         "fechaProyeccion"   => $pelicula->fechaFuncion,
                         "imagen"            => $pelicula->imagen,
                         "funciones"         => $funciones
                     );
                 }
+
                 if (!isset($proyecciones)) {
                     $data = array(
                         "code" => 200,
                         "status" => "success",
                         "message" => "No hay proyecciones disponibles"
                     );
-                } else{
+                } else {
                     $data = array(
                         "code" => 200,
                         "status" => "success",
@@ -75,11 +77,7 @@ class ProyeccionController extends Controller
                         "proyecciones" => $proyecciones
                     );
                 }
-
-
-
             }
-
         } else {
             $data = [
                 'code'    => 404,
@@ -87,20 +85,20 @@ class ProyeccionController extends Controller
                 'message' => 'Data not fonund'
             ];
         }
-
         
         return response()->json($data,$data["code"]);
-
     }
 
     public function getProyeccion ( Request $request ) {
         $params_array = [
             'fechaProyeccion' => $request['fechaProyeccion']
         ];
+
         if( !empty( $params_array ) ){
             $validate = \Validator::make($params_array,[
         		"fechaProyeccion" => 'required|date'
             ]);
+
             if( $validate->fails() ){
                 $data = [
                     'code'    => 400,
@@ -109,7 +107,6 @@ class ProyeccionController extends Controller
                     'errors'  => $validate->errors()
                 ];
             } else {
-
                 $peliculas = pelicula::selectRaw('pr.id idProyeccion, pelicula.titulo, pelicula.imagen, date(pr.horario_inicio) fechaFuncion, time(pr.horario_inicio) horaFuncion, adddate(pr.horario_inicio, interval 15 minute)  hora_inicio, (select count(*) from boleta where proyeccion_id = pr.id) boletasVendidas, s.capacidad ')
                 ->join("proyeccion as pr", "pr.pelicula_id" , '=' , 'pelicula.id')
                 ->join("sala as s", "s.id","=","pr.sala_id")
@@ -130,13 +127,14 @@ class ProyeccionController extends Controller
                         'funcionDisponible' => $funcionDisponible 
                     );
                 }
+
                 if (!isset($proyecciones)) {
                     $data = array(
                         "code" => 200,
                         "status" => "success",
                         "message" => "No hay proyecciones disponibles"
                     );
-                } else{
+                } else {
                     $data = array(
                         "code" => 200,
                         "status" => "success",
@@ -145,8 +143,6 @@ class ProyeccionController extends Controller
                     );
                 }
             }
-
-
         } else { 
             $data = array(
                 'code'    => 400,
@@ -156,7 +152,6 @@ class ProyeccionController extends Controller
         }
 
         return response()->json($data,$data["code"]);
-
     }
 
     // Funciones personalizadas

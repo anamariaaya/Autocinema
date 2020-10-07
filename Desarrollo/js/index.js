@@ -3,42 +3,58 @@
 $(document).ready(function() {
     getMovie();
     getConfiteria();
-    
-    
 });
+
 var url = 'api-rest-autocinema/public/';
 // var url = 'http://api.autocinema33.com/';
+
 function getMovie() {
-    var data = {
-        'cantidad': 3,
-    }
+    var pos = 0;
+
+    var data = {'cantidad': 1000}
+
     $.post(url+'proyecciones', data).done(function(rest) {
         // $.post('http://127.0.0.1:8000/proyecciones',data).done(function(rest){
         // console.log(rest);
         var i = 1;
         var html = '';
         rest.proyecciones.forEach(element => {
+            if (pos==0){
+                html += '<div class="mySlides2 fade">';
+                html += '<div class="peliculassec">';
 
-            var funcion = '';
+                pos=1;
+            } else if (pos==4){
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="mySlides2 fade" style="display: none;" >';
+                html += '<div class="peliculassec">';
+
+                pos=1;
+            }
+            
             if (element.imagen) {
                 var imagenes = url+'' + element.imagen;
             } else {
                 var imagenes = 'img/index/poster-1.png';
             }
+
+            var funcion = '';
             element.funciones.forEach(funciones => {
                 funcion = funcion + funciones + ' ';
             });
+
             html = html +
-            '<div class="peliculas" id="' + i + '" idpelicula="' + element.idPelicula + '" onClick="setMovie(this.id)">  ' +
+            '<div class="peliculas" id="'+i+'" idpelicula="' + element.idPelicula + '" onClick="setMovie(this.id)">  ' +
                 '<img src="' + imagenes + '" id="myImg'+i+'" onClick = "mostrarModal('+i+')"/>' +
-                '<div class="diapeli2" id="fechahoy">' +
+                '<div class="diapeli2" id="fechahoy'+i+'">' +
                     '<p>' + element.fechaProyeccion + '</p>' +
                 '</div>' +
                 '<div class="horarios">' +
-                    '<div class="nombrepeli" id="peliculahoy">' +
+                    '<div class="nombrepeli" id="peliculahoy'+i+'">' +
                         '<h2>' + element.titulo + '</h2><p> Funciones ' + funcion + '</p>' +
                     '</div>' +
-                    '<div class="diapeli" id="fechahoy2">' +
+                    '<div class="diapeli" id="fechahoy2'+i+'">' +
                         '<p>' + element.fechaProyeccion + '</p>' +
                     '</div>' +
                 '</div>' +
@@ -47,65 +63,109 @@ function getMovie() {
                 '<span class="closemodal">&times;</span>'+
                 '<div class="modal-content" id="img0'+i+'">'+
                     '<div class="sinopsis">'+
-                        '<div class="sinopsis1">'+
+                        '<div class="sinopsis1" id="idmarcoimagen'+i+'" >'+
                             '<div class="marcorojo">'+
-                                '<img src="img/index/poster-2.png">'+
+                                '<img src="'+imagenes+'">'+
                             '</div>'+
                         '</div>'+
+
+'<div class="sinopsis1" style="display: none;" id="idmarcotrailer'+i+'" >'+
+'<div class="marcorojo">'+
+'<iframe src="https://www.youtube.com/embed/3No2ro4xfo4" frameborder="0" allowfullscreen></iframe>' +
+'</div>'+
+'</div>'+ 
+
                         '<div class="sinopsis2">'+
-                            '<img src="'+imagenes+'" width="15%" style="float:right; margin-right:10%; margin-top:3%;"/>'+
-                            '<div class="titulosin" id="sinopsishoy">'+
-                                '<h2></h2>'+
-                                '<p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p><br>'+
-                                '<p><b>Duración: </b>121 min</p><br>'+
-                                '<p><b>País: </b>121 min</p><br>'+
-                                '<p><b>Fecha de estreno: 01 de agosto 2020</b></p><br>'+
-                                '<p><b>Reparto: </b>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p><br>'+
+                            '<img src="img/logo.png" width="15%" style="float:right; margin-right:10%; margin-top:3%;"/>'+
+                            '<div class="titulosin" id="sinopsishoy'+i+'">'+
+                                '<p>' + element.sinopsis + '</p><br>'+
+                                '<p><b>Duración: </b>' + element.duracion + ' min</p><br>'+
+                                '<p><b>Fecha de estreno: ' + element.fechaProyeccion + '</b></p><br>'+
                             '</div>'+
-                            '<div class="trailer">'+
-                                '<div class="trailerbutton"></div><p>ver trailer</p>'+
+                            '<div class="trailer">'+                                
+                                    '<div class="trailerbutton" onclick="mostrar_trailer('+i+');"></div>'+
+                                    '<a href="' + element.trailer + '" target="_blank">'+
+                                    '<p>ver trailer</p>'+
+                                '</a>'+
                             '</div>'+
-                            '<div class="compraboleta"> Comprar Boletas</div>'+
+                            '<a href="compra.html"><div class="compraboleta"> Comprar Boletas</div></a>'+
                         '</div>'+
                     '</div>'+
                 '</div>'+
             '</div>';
-            $('#proyecciones1').html(html);
+            
             i++;
+            pos++;
         });
 
+        html += '</div>';
+        html += '</div>';
 
+        $('#proyecciones1').html(html);
     }).fail(function(err) {
 
     });
 }
 
 function getConfiteria() {
-    var data = {
-        cantidad: 3,
-        idCategoria: 4
-    }
-    $.post(url+'productos', data).done(function(rest) {
-        var html = '';
+    var html = '';
+    var pos = 0;
 
+    var data = {cantidad: 0, idCategoria: 0}
+
+    $.post(url+'productos', data).done(function(rest) {
         rest.orders.forEach(respuesta => {
-            var costo = (parseInt(respuesta.costo) > 10000) ? respuesta.costo.slice(0, 2) + 'K' : respuesta.costo;
+            var costo = parseFloat(respuesta.costo/1000);
+            
+            if (pos==0){
+                html += '<div class="mySlides5 fade">';
+                html += '<div class="combossec">';
+
+                pos=1;
+            } else if (pos==4){
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="mySlides5 fade" style="display: none;" >';
+                html += '<div class="combossec">';
+
+                pos=1;
+            }
+
+            if (respuesta.subCatImagen) {
+                var scimagen = url+'' + respuesta.subCatImagen;
+            } else {
+                var scimagen = '/img/confiteria/combo.png';
+            }
+
             html += '<div class="combos">' +
-                '<img src="img/confiteria/combo.png" />' +
+                '<img src="' + scimagen + '" />' +
                 '<div class="descripcioncombos">' +
                 '<div class="titulocombos">' +
-                '<div class="textcombos">' + respuesta.nombre + '</div>' +
-                '<div class="preciocombo">' + costo + '</div>' +
+                '<div class="textcombos">' + respuesta.subCategoria + '</div>' +
+                '<div class="preciocombo">';
+
+            if ((respuesta.costo % 1000) > 0) {
+                html += formato_numero(costo, 1, ",",".");
+            } else {
+                html += costo;
+            }
+
+            html += 'K</div>' +
                 '</div>' +
                 '<div class="subtextcombos">' + respuesta.desProducto + '</div>' +
                 '</div>' +
                 '</div>';
-            $('#confiteria').html(html);
-        })
-    }).fail(function(err) {
-        console.log('Error la traer los prouductos')
-    });
 
+            pos++;
+        });
+        
+        html += '</div>';
+        html += '</div>';
+        
+        $('#confiteria').html(html);
+    }).fail(function(err) {
+        console.log('Error al traer los productos')
+    });
 }
 
 function setMovie(id) {
@@ -126,4 +186,37 @@ function mostrarModal(i) {
 
     eval("span.onclick = function(){ modal"+i+".style.display = 'none';}");
     eval("img"+i+".click()");
+}
+
+function formato_numero(numero, decimales, separador_decimal, separador_miles) {
+    numero=parseFloat(numero);
+    if(isNaN(numero)){
+        return "";
+    }
+
+    if(decimales!==undefined){
+        // Redondeamos
+        numero=numero.toFixed(decimales);
+    }
+
+    // Convertimos el punto en separador_decimal
+    numero=numero.toString().replace(".", separador_decimal!==undefined ? separador_decimal : ",");
+
+    if(separador_miles){
+        // Adicionamos los separadores de miles
+        var miles=new RegExp("(-?[0-9]+)([0-9]{3})");
+        while(miles.test(numero)) {
+            numero=numero.replace(miles, "$1" + separador_miles + "$2");
+        }
+    }
+
+    return numero;
+}
+
+function mostrar_trailer(id) {
+    var divimag = document.getElementById("idmarcoimagen"+id);
+    var divtrai = document.getElementById("idmarcotrailer"+id);
+
+    divimag.style.display = "none";
+    divtrai.style.display = "block";
 }
