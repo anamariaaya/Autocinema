@@ -15,12 +15,4 @@ class cliente extends Model
     public function boletas(){
         return $this->hasMany("App\boleta");
     }
-
-    public function clientes_combos(){
-        return $this->hasMany('App\cliente_combos');
-    }
-
-    public function clientes_productos(){
-        return $this->hasMany('App\clientes_productos');
-    }
 }
